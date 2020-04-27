@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Go PM Go</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="text_questionnaire1">Questionnaire 1</string>
+    <string name="text_questionnaire2">Questionnaire 2</string>
+
+    <string name="text_pre_questionnaire1"> You are going to answer Questionnaire for Management and Team. Please improve our team by filling the questionnaire. Let"'"s make the better future together!</string>
+    <string name="text_pre_questionnaire2"> You are going to answer Questionnaire for Our Daily Environment of Team and Management. As an essential part of our team, your opinion is appreciated</string>
+
+    <string name="text_choose_member">Please improve our team by filling the questionnaire. As an essential part of our team, your opinion is appreciated!</string>
+    <string name="title_activity_main_pm">MainPmActivity</string>
+
+    <string name="prompt_choose_member">Choose Member</string>
+
+    <string-array name="list">
+        <item>Apple</item>
+        <item>Banana</item>
+        <item>Carrot</item>
+    </string-array>
+</resources>

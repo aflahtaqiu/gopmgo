@@ -9,7 +9,16 @@
         android:id="@+id/resultAsDevFragment"
         android:name="com.gopmgo.module.result_as_dev.ResultAsDevFragment"
         android:label="@string/action_bar_title_dev_result"
-        tools:layout="@layout/fragment_result_as_dev" />
+        tools:layout="@layout/fragment_result_as_dev" >
+        <action
+            android:id="@+id/action_resultAsDevFragment_to_likelihoodSeverityFragment"
+            app:destination="@id/likelihoodSeverityFragment"
+            app:popUpTo="@id/resultAsDevFragment" />
+        <action
+            android:id="@+id/action_resultAsDevFragment_to_detailAntipatternFragment2"
+            app:destination="@id/detailAntipatternFragment"
+            app:popUpTo="@id/resultAsDevFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultAsPmFragment"
         android:name="com.gopmgo.module.result_as_pm.ResultAsPmFragment"
@@ -19,15 +28,83 @@
             android:id="@+id/action_resultAsPmFragment_to_likelihoodSeverityFragment"
             app:destination="@id/likelihoodSeverityFragment"
             app:popUpTo="@id/resultAsPmFragment" />
+        <action
+            android:id="@+id/action_resultAsPmFragment_to_detailAntipatternFragment2"
+            app:destination="@id/detailAntipatternFragment"
+            app:popUpTo="@id/resultAsPmFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.gopmgo.module.home.HomeFragment"
         android:label=" "
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_preQuestDevFragment"
+            app:destination="@id/preQuestDevFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_preQuestPmFragment"
+            app:destination="@id/preQuestPmFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/likelihoodSeverityFragment"
         android:name="com.gopmgo.module.likelihood_severity.LikelihoodSeverityFragment"
-        android:label="fragment_likelihood_severity"
+        android:label="@string/title_likelihood"
         tools:layout="@layout/fragment_likelihood_severity" />
+    <fragment
+        android:id="@+id/detailAntipatternFragment"
+        android:name="com.gopmgo.module.detail_antipattern.DetailAntipatternFragment"
+        android:label="fragment_detail_antipattern"
+        tools:layout="@layout/fragment_detail_antipattern" >
+        <action
+            android:id="@+id/action_detailAntipatternFragment_to_refactoredSolutionFragment"
+            app:destination="@id/refactoredSolutionFragment"
+            app:popUpTo="@id/detailAntipatternFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bandAidFragment"
+        android:name="com.gopmgo.module.band_aid.BandAidFragment"
+        android:label="fragment_band_aid"
+        tools:layout="@layout/fragment_band_aid" >
+        <action
+            android:id="@+id/action_bandAidFragment_to_refactoredSolutionFragment"
+            app:destination="@id/refactoredSolutionFragment"
+            app:popUpTo="@id/bandAidFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selfRepairFragment"
+        android:name="com.gopmgo.module.self_repair.SelfRepairFragment"
+        android:label="fragment_self_repair"
+        tools:layout="@layout/fragment_self_repair" >
+        <action
+            android:id="@+id/action_selfRepairFragment_to_refactoredSolutionFragment"
+            app:destination="@id/refactoredSolutionFragment"
+            app:popUpTo="@id/selfRepairFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/refactoringFragment"
+        android:name="com.gopmgo.module.refactoring.RefactoringFragment"
+        android:label="@string/title_refactored_solution"
+        tools:layout="@layout/fragment_refactoring">
+        <action
+            android:id="@+id/action_refactoringFragment_to_refactoredSolutionFragment"
+            app:destination="@id/refactoredSolutionFragment"
+            app:popUpTo="@id/refactoringFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/refactoredSolutionFragment"
+        android:name="com.gopmgo.module.refactored_solution.RefactoredSolutionFragment"
+        android:label="fragment_refactored_solution"
+        tools:layout="@layout/fragment_refactored_solution" />
+    <fragment
+        android:id="@+id/preQuestDevFragment"
+        android:name="com.gopmgo.module.pre_quest_dev.PreQuestDevFragment"
+        android:label="fragment_pre_quest_dev"
+        tools:layout="@layout/fragment_pre_quest_dev" />
+    <fragment
+        android:id="@+id/preQuestPmFragment"
+        android:name="com.gopmgo.module.pre_quest_pm.PreQuestPmFragment"
+        android:label="fragment_pre_quest_pm"
+        tools:layout="@layout/fragment_pre_quest_pm" />
 </navigation>

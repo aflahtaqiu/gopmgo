@@ -5,8 +5,11 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -26,7 +29,22 @@ public class MainActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.homeFragment, R.id.resultAsPmFragment, R.id.resultAsDevFragment)
                 .build();
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                switch (destination.getId()) {
+                    case R.id.detailAntipatternFragment:
+                    case R.id.likelihoodSeverityFragment :
+                    case R.id.refactoredSolutionFragment :
+                        hideBottomNavigation(); break;
+                    default: showBottomNavigation();
+                }
+
+                getSupportActionBar().setTitle(destination.getLabel());
+            }
+        });
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
@@ -39,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideBottomNavigation() {
-
         if (navView.getVisibility() == View.VISIBLE && navView.getAlpha() == 1f) {
             navView.animate().alpha(0f)
                     .withEndAction(new Runnable() {
@@ -47,13 +64,12 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             navView.setVisibility(View.GONE);
                         }
-                    }).setDuration(500);
+                    }).setDuration(0);
         }
     }
 
     private void showBottomNavigation() {
-        // navigation is BottomNavigationView
         navView.setVisibility(View.VISIBLE);
-        navView.animate().alpha(1f).setDuration(500);
+        navView.animate().alpha(1f).setDuration(0);
     }
 }

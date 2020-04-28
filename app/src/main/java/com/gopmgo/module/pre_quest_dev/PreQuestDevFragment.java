@@ -1,36 +1,34 @@
-package com.gopmgo.module.likelihood_severity;
+package com.gopmgo.module.pre_quest_dev;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gopmgo.R;
 import com.gopmgo.base.BaseFragment;
-import com.gopmgo.databinding.FragmentLikelihoodSeverityBinding;
+import com.gopmgo.databinding.FragmentPreQuestDevBinding;
 
 
-public class LikelihoodSeverityFragment extends BaseFragment implements ILikelihoodSeverityView {
+public class PreQuestDevFragment extends BaseFragment implements IPreQuestDevView {
 
-    private static ILikelihoodSeverityPresenter presenter;
+    private static IPreQuestDevPresenter presenter;
 
-    private FragmentLikelihoodSeverityBinding binding;
+    private FragmentPreQuestDevBinding binding;
 
 
-    public LikelihoodSeverityFragment() {
+    public PreQuestDevFragment() {
         // Fragment Constructor
     }
 
-    public static void injectILikelihoodSeverityPresenter(ILikelihoodSeverityPresenter _presenter) {
+    public static void injectIPreQuestDevPresenter(IPreQuestDevPresenter _presenter) {
         presenter = _presenter;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentLikelihoodSeverityBinding.inflate(inflater, container, false);
-        binding.tvDetail2.setText(Html.fromHtml(getResources().getString(R.string.text_detail2_likelihood_severity)));
+        binding = FragmentPreQuestDevBinding.inflate(inflater, container, false);
+
 
         return binding.getRoot();
     }

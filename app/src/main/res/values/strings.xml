@@ -4,6 +4,7 @@
 
     <string name="action_bar_title_pm_result">PM Result</string>
     <string name="action_bar_title_dev_result">Dev Result</string>
+    <string name="action_bar_title_likelihood_severity">Likelihood and Severity</string>
 
     <string name="title_result_as_pm">Result as PM</string>
     <string name="title_result_as_dev">Result as Dev</string>
@@ -16,7 +17,28 @@
     
     <string name="title_likelihood">Likelihood</string>
     <string name="title_severity">Severity</string>
+
+    <string name="title_likelihood_severity">What"'"s Likelihood and Severity?</string>
     
+    <string name="title_band_aid">Band Aid</string>
+    <string name="title_self_repair">Self Repair</string>
+    <string name="title_refactoring">Refactoring</string>
+
+
+    <string name="title_refactored_solution">Refactored Solution</string>
+    <string name="title_question_refactored_solution">What"'"s band aid, self repair and refactored solution?</string>
+
+    <string name="text_bandaid_refactored_solution"><![CDATA[<b>Band Aid</b>]]> is a short-term fix or coping strategy for those in the midst of the antipattern who have neither the time nor influence to refactor it properly.</string>
+    <string name="text_selfrepair_refactored_solution"><![CDATA[<b>Self Repair</b>]]> is a first step for someone perpetuating the antipattern - how you can help yourself improve.</string>
+    <string name="text_refactoring_solution"><![CDATA[<b>Refactoring</b>]]> is changes that should be made to remedy the situation and their rationale. Sometimes these are under the control of an individual, but often they involve cultural or institutional changes.</string>
+
+    <string name="text_band_aid">Band aid for your member</string>
+    <string name="text_self_repair">Self repair for your member</string>
+    <string name="text_refactoring">Refactoring for your member</string>
+
+    <string name="text_detail1_likelihood_severity">Likelihood and severity is a part of qualitative risk analysis process. Risk analysis is the process of prioritizing risks based on the probability of the risk occurring and the impact it would have on the project.</string>
+    <string name="text_detail2_likelihood_severity"><![CDATA[<b>Likelihood</b>]]>, also named as probability, shows how likely the antipatterns happen in software development process (SDP). <![CDATA[<b>Severity</b>]]>, also named as impact, shows how bad it is if it happens.</string>
+
     <string name="text_sidelining">Orang yang suka mengurang-ngurangi pekerjaan, seringkali karena memiliki agenda pribadi yang seringkali tersembunyi (hidden agenda).</string>
     <string name="text_ultimate_weapon">Orang yang menjadi andalan di dalam organisasi sehingga dijadikan senjata utama dalam segala permasalahan.</string>
 

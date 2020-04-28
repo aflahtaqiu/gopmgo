@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.gopmgo.base.BaseFragment;
@@ -31,6 +32,20 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView 
                              Bundle savedInstanceState) {
         binding = FragmentResultAsPmBinding.inflate(inflater, container, false);
 
+        binding.tvDetailLikelihoodSeverity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(ResultAsPmFragmentDirections
+                        .actionResultAsPmFragmentToLikelihoodSeverityFragment());
+            }
+        });
+
+        binding.imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(ResultAsPmFragmentDirections.actionResultAsPmFragmentToDetailAntipatternFragment2());
+            }
+        });
         return binding.getRoot();
     }
 

@@ -1,35 +1,34 @@
-package com.gopmgo.module.result_as_pm;
+package com.gopmgo.module.likelihood_severity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.navigation.ui.NavigationUI;
-
 import com.gopmgo.base.BaseFragment;
-import com.gopmgo.databinding.FragmentResultAsPmBinding;
+import com.gopmgo.databinding.FragmentLikelihoodSeverityBinding;
 
 
-public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView {
+public class LikelihoodSeverityFragment extends BaseFragment implements ILikelihoodSeverityView {
 
-    private static IResultAsPmPresenter presenter;
+    private static ILikelihoodSeverityPresenter presenter;
 
-    private FragmentResultAsPmBinding binding;
+    private FragmentLikelihoodSeverityBinding binding;
 
 
-    public ResultAsPmFragment() {
+    public LikelihoodSeverityFragment() {
         // Fragment Constructor
     }
 
-    public static void injectIResultAsPmPresenter(IResultAsPmPresenter _presenter) {
+    public static void injectILikelihoodSeverityPresenter(ILikelihoodSeverityPresenter _presenter) {
         presenter = _presenter;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentResultAsPmBinding.inflate(inflater, container, false);
+        binding = FragmentLikelihoodSeverityBinding.inflate(inflater, container, false);
+
 
         return binding.getRoot();
     }

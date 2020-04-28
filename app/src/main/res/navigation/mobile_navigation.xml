@@ -14,10 +14,20 @@
         android:id="@+id/resultAsPmFragment"
         android:name="com.gopmgo.module.result_as_pm.ResultAsPmFragment"
         android:label="@string/action_bar_title_pm_result"
-        tools:layout="@layout/fragment_result_as_pm" />
+        tools:layout="@layout/fragment_result_as_pm" >
+        <action
+            android:id="@+id/action_resultAsPmFragment_to_likelihoodSeverityFragment"
+            app:destination="@id/likelihoodSeverityFragment"
+            app:popUpTo="@id/resultAsPmFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.gopmgo.module.home.HomeFragment"
-        android:label="fragment_home"
+        android:label=" "
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/likelihoodSeverityFragment"
+        android:name="com.gopmgo.module.likelihood_severity.LikelihoodSeverityFragment"
+        android:label="fragment_likelihood_severity"
+        tools:layout="@layout/fragment_likelihood_severity" />
 </navigation>

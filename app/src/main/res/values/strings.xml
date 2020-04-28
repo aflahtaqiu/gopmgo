@@ -1,18 +1,27 @@
 <resources>
     <string name="app_name">Go PM Go</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
-    <string name="text_questionnaire1">Questionnaire 1</string>
-    <string name="text_questionnaire2">Questionnaire 2</string>
+    <string name="action_bar_title_pm_result">PM Result</string>
+    <string name="action_bar_title_dev_result">Dev Result</string>
+
+    <string name="title_result_as_pm">Result as PM</string>
+    <string name="title_result_as_dev">Result as Dev</string>
+
+    <string name="title_project_manager_card">I"'"m a Project Manager</string>
+    <string name="title_developer_card">I"'"m a Developer</string>
+
+    <string name="text_project_manager_card">If you"'"re a project manager and want to evaluate your member</string>
+    <string name="text_developer_card">If you"'"re a team member and want to evaluate your manager and team</string>
+    
+    <string name="text_result_problem_found">This is your current problem found</string>
+    <string name="text_result_click_antipattern">Click on antipatterns to see detail solutions</string>
 
     <string name="text_pre_questionnaire1"> You are going to answer Questionnaire for Management and Team. Please improve our team by filling the questionnaire. Let"'"s make the better future together!</string>
     <string name="text_pre_questionnaire2"> You are going to answer Questionnaire for Our Daily Environment of Team and Management. As an essential part of our team, your opinion is appreciated</string>
 
     <string name="text_choose_member">Please improve our team by filling the questionnaire. As an essential part of our team, your opinion is appreciated!</string>
-    <string name="title_activity_main_pm">MainPmActivity</string>
-
+    
     <string name="prompt_choose_member">Choose Member</string>
 
     <string-array name="list">

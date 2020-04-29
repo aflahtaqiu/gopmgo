@@ -35,11 +35,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 switch (destination.getId()) {
-                    case R.id.detailAntipatternFragment:
-                    case R.id.likelihoodSeverityFragment :
-                    case R.id.refactoredSolutionFragment :
-                        hideBottomNavigation(); break;
-                    default: showBottomNavigation();
+                    case R.id.homeFragment:
+                    case R.id.resultAsPmFragment:
+                    case R.id.resultAsDevFragment:
+                        showBottomNavigation(); break;
+                    default: hideBottomNavigation();
+                }
+
+                switch (destination.getId()) {
+                    case R.id.preQuestDevFragment: getSupportActionBar().hide(); break;
+                    default: getSupportActionBar().show();  
                 }
 
                 getSupportActionBar().setTitle(destination.getLabel());

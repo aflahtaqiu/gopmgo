@@ -39,12 +39,12 @@
         android:label=" "
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_preQuestDevFragment"
-            app:destination="@id/preQuestDevFragment"
+            android:id="@+id/action_homeFragment_to_questDevActivity"
+            app:destination="@id/questDevActivity"
             app:popUpTo="@id/homeFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_preQuestPmFragment"
-            app:destination="@id/preQuestPmFragment"
+            android:id="@+id/action_homeFragment_to_questPmActivity"
+            app:destination="@id/questPmActivity"
             app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
@@ -97,14 +97,14 @@
         android:name="com.gopmgo.module.refactored_solution.RefactoredSolutionFragment"
         android:label="fragment_refactored_solution"
         tools:layout="@layout/fragment_refactored_solution" />
-    <fragment
-        android:id="@+id/preQuestDevFragment"
-        android:name="com.gopmgo.module.pre_quest_dev.PreQuestDevFragment"
-        android:label="fragment_pre_quest_dev"
-        tools:layout="@layout/fragment_pre_quest_dev" />
-    <fragment
-        android:id="@+id/preQuestPmFragment"
-        android:name="com.gopmgo.module.pre_quest_pm.PreQuestPmFragment"
-        android:label="fragment_pre_quest_pm"
-        tools:layout="@layout/fragment_pre_quest_pm" />
+    <activity
+        android:id="@+id/questDevActivity"
+        android:name="com.gopmgo.QuestDevActivity"
+        android:label="activity_quest_dev"
+        tools:layout="@layout/activity_quest_dev" />
+    <activity
+        android:id="@+id/questPmActivity"
+        android:name="com.gopmgo.QuestPmActivity"
+        android:label="activity_quest_pm"
+        tools:layout="@layout/activity_quest_pm" />
 </navigation>

@@ -11,15 +11,15 @@
 
     <string name="title_project_manager_card">I"'"m a Project Manager</string>
     <string name="title_developer_card">I"'"m a Developer</string>
-    
+
     <string name="title_sidelining">Sidelining</string>
     <string name="title_ultimate_weapon">Ultimate Weapon</string>
-    
+
     <string name="title_likelihood">Likelihood</string>
     <string name="title_severity">Severity</string>
 
     <string name="title_likelihood_severity">What"'"s Likelihood and Severity?</string>
-    
+
     <string name="title_band_aid">Band Aid</string>
     <string name="title_self_repair">Self Repair</string>
     <string name="title_refactoring">Refactoring</string>
@@ -31,6 +31,12 @@
     <string name="text_bandaid_refactored_solution"><![CDATA[<b>Band Aid</b>]]> is a short-term fix or coping strategy for those in the midst of the antipattern who have neither the time nor influence to refactor it properly.</string>
     <string name="text_selfrepair_refactored_solution"><![CDATA[<b>Self Repair</b>]]> is a first step for someone perpetuating the antipattern - how you can help yourself improve.</string>
     <string name="text_refactoring_solution"><![CDATA[<b>Refactoring</b>]]> is changes that should be made to remedy the situation and their rationale. Sometimes these are under the control of an individual, but often they involve cultural or institutional changes.</string>
+
+    <string name="title_pre_quest_pm">Questionnaire for PM</string>
+    <string name="title_pre_quest_dev">Questionnaire for Developer</string>
+
+    <string name="text_pre_quest_dev">You are going to answer questionnaire for your manager and your team culture. You can detect your team"'"s antipatterns and we will give you some recommendation to refactor them. Let"'"s make a better future together!</string>
+    <string name="text_pre_quest_pm">You are going to answer questionnaire about your member. You can detect your team member"'"s antipatterns and we will give you some recommendation to refactor him/her. Let"'"s make a better future together.</string>
 
     <string name="text_band_aid">Band aid for your member</string>
     <string name="text_self_repair">Self repair for your member</string>
@@ -44,7 +50,7 @@
 
     <string name="text_project_manager_card">If you"'"re a project manager and want to evaluate your member</string>
     <string name="text_developer_card"> If you"'"re a team member and want to evaluate your manager and team</string>
-    
+
     <string name="text_result_problem_found">This is your current problem found</string>
     <string name="text_result_click_antipattern">Click on antipatterns to see detail solutions</string>
     <string name="text_question_result">What"'"s likelihood and severity?</string>

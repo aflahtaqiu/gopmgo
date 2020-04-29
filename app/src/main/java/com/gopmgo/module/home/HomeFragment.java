@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.Navigation;
+
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentHomeBinding;
 
@@ -29,6 +31,21 @@ public class HomeFragment extends BaseFragment implements IHomeView {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
+        binding.btnStartQuestDev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(HomeFragmentDirections
+                        .actionHomeFragmentToQuestDevActivity());
+            }
+        });
+
+        binding.btnStartQuestPm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(HomeFragmentDirections
+                        .actionHomeFragmentToQuestPmActivity());
+            }
+        });
 
         return binding.getRoot();
     }

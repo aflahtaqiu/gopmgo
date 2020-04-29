@@ -119,7 +119,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_start_quest1"
+                    android:id="@+id/btn_start_quest_pm"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -197,7 +197,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_start_quest2"
+                    android:id="@+id/btn_start_quest_dev"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

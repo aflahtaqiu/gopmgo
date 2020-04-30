@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.Navigation;
+
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentPreQuestPmBinding;
 
@@ -15,6 +17,7 @@ public class PreQuestPmFragment extends BaseFragment implements IPreQuestPmView 
 
     private FragmentPreQuestPmBinding binding;
 
+    private String pmRoleQuest = "pm";
 
     public PreQuestPmFragment() {
         // Fragment Constructor
@@ -29,6 +32,13 @@ public class PreQuestPmFragment extends BaseFragment implements IPreQuestPmView 
                              Bundle savedInstanceState) {
         binding = FragmentPreQuestPmBinding.inflate(inflater, container, false);
 
+        binding.btnStartQuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(PreQuestPmFragmentDirections
+                        .actionPreQuestPmFragmentToQuestionnaireFragment(pmRoleQuest));
+            }
+        });
 
         return binding.getRoot();
     }

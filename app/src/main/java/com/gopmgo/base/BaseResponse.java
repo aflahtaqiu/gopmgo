@@ -13,8 +13,11 @@ public class BaseResponse<T> {
     @SerializedName("code")
     private int code;
 
-    @SerializedName("status")
-    private String status;
+    @SerializedName("message")
+    private String message;
+
+    @SerializedName("success")
+    private String isSuccess;
 
     @SerializedName("data")
     private T data;

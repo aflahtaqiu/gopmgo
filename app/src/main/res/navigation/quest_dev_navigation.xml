@@ -9,5 +9,25 @@
         android:id="@+id/preQuestDevFragment"
         android:name="com.gopmgo.module.pre_quest_dev.PreQuestDevFragment"
         android:label="fragment_pre_quest_dev"
-        tools:layout="@layout/fragment_pre_quest_dev" />
+        tools:layout="@layout/fragment_pre_quest_dev" >
+        <action
+            android:id="@+id/action_preQuestDevFragment_to_questionnaireFragment"
+            app:destination="@id/questionnaireFragment"
+            app:popUpTo="@id/preQuestDevFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionnaireFragment"
+        android:name="com.gopmgo.module.questionnaire.QuestionnaireFragment"
+        android:label="fragment_questionnaire"
+        tools:layout="@layout/fragment_questionnaire" >
+        <argument
+            android:name="ROLE_QUEST"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_questionnaireFragment_to_mobile_navigation"
+            app:destination="@id/mobile_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <include app:graph="@navigation/mobile_navigation" />
 </navigation>

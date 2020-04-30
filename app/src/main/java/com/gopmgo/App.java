@@ -2,6 +2,11 @@ package com.gopmgo;
 
 import android.app.Application;
 
+import com.gopmgo.di.DataInjector;
+import com.gopmgo.module.questionnaire.QuestionnaireInjector;
+import com.gopmgo.module.questionnaire.QuestionnairePresenter;
+import com.gopmgo.module.splash_screen.SplashScreenActivity;
+
 
 public class App extends Application {
 
@@ -12,6 +17,10 @@ public class App extends Application {
     }
 
     void addModuleDependency() {
-        // TODO: Add your instance of module dependencies here
+        SplashScreenActivity.injectDestinationClass(MainActivity.class);
+
+
+        QuestionnaireInjector.getInstance();
+        QuestionnairePresenter.setDataInjector(DataInjector.getInstance());
     }
 }

@@ -17,7 +17,7 @@ public class BaseResponse<T> {
     private String message;
 
     @SerializedName("success")
-    private String isSuccess;
+    private boolean isSuccess;
 
     @SerializedName("data")
     private T data;

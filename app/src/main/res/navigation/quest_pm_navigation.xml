@@ -27,6 +27,7 @@
         <action
             android:id="@+id/action_questionnaireFragment_to_mobile_navigation2"
             app:destination="@id/mobile_navigation"
+            app:launchSingleTop="false"
             app:popUpToInclusive="true" />
     </fragment>
     <include app:graph="@navigation/mobile_navigation" />

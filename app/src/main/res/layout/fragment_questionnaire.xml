@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_filled_quest" />
 
     <ImageView
         android:id="@+id/iv_close"
@@ -57,12 +57,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tv_filled_quest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:text="2"
+        android:text="0"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_close" />
@@ -75,9 +75,9 @@
         android:layout_marginLeft="4dp"
         android:text="/"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/textView18"
-        app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="@+id/textView18" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_filled_quest"
+        app:layout_constraintStart_toEndOf="@+id/tv_filled_quest"
+        app:layout_constraintTop_toTopOf="@+id/tv_filled_quest" />
 
     <TextView
         android:id="@+id/tv_max_quest"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="Question"
+        android:text="pages"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tv_max_quest"
         app:layout_constraintStart_toEndOf="@+id/tv_max_quest"
@@ -111,6 +111,24 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_next"
         app:layout_constraintEnd_toEndOf="@+id/btn_next"
         app:layout_constraintStart_toStartOf="@+id/btn_next"
-        app:layout_constraintTop_toBottomOf="@+id/progressbar_questionnaire" />
+        app:layout_constraintTop_toBottomOf="@+id/progressbar_questionnaire" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_questionnaire"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_questionnaire">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

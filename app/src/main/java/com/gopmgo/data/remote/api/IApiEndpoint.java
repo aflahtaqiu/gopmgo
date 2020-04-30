@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 
 public interface IApiEndpoint {
 
-    @GET("mgmtquest")
+    @GET("devquest")
     Call<BaseResponse<List<Questionnaire>>> getDevQuestionnaires ();
 
     @GET("pmquest")

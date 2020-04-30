@@ -6,5 +6,6 @@ import com.gopmgo.base.IBasePresenter;
 
 public interface IQuestionnairePresenter extends IBasePresenter {
     void injectView(IQuestionnaireView _view);
-    void getQuestionnaires (Context context);
+    void getQuestionnaires (Context context, String roleQuest);
+    void updateQuestionnaires();
 }

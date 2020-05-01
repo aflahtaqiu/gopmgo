@@ -12,21 +12,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentQuestionnaireBinding;
+import com.gopmgo.model.Questionnaire;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class QuestionnaireFragment extends BaseFragment implements IQuestionnaireView {
+public class QuestionnaireFragment extends BaseFragment implements IQuestionnaireView, IQuestAdapterListener {
 
     private static IQuestionnairePresenter presenter;
+    private static IQuestionnaireAdapter adapter;
 
     private FragmentQuestionnaireBinding binding;
 
     private String roleQuest;
-
-    private List<String> questions = new ArrayList<>();
-    private QuestionnaireAdapter adapter;
 
     public QuestionnaireFragment () {
         // Fragment Constructor
@@ -66,9 +64,11 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     public void onResume() {
         presenter.getQuestionnaires(getContext(), roleQuest);
 
-        adapter = new QuestionnaireAdapter(questions, getContext());
+        adapter.setContext(getContext());
+        adapter.setListener(this);
+
         binding.rvQuestionnaire.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rvQuestionnaire.setAdapter(adapter);
+        adapter.setAdapter(binding.rvQuestionnaire);
         super.onResume();
     }
 
@@ -100,11 +100,8 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     }
 
     @Override
-    public void setListQuestionnaires(List<String> identifications) {
-        questions.clear();
-        questions.addAll(identifications);
-
-        adapter.notifyDataSetChanged();
+    public void setListQuestionnaires(List<Questionnaire> identifications) {
+        adapter.updateData(identifications);
     }
 
     @Override
@@ -125,5 +122,14 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
 
     public static void injectIQuestionnairePresenter (IQuestionnairePresenter _presenter) {
         presenter = _presenter;
+    }
+
+    public static void setAdapter(IQuestionnaireAdapter _iAdapter) {
+        adapter = _iAdapter;
+    }
+
+    @Override
+    public void onQuestSelected(int idQuest, int answer) {
+        presenter.saveAnswer(idQuest, answer);
     }
 }

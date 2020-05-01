@@ -18,6 +18,7 @@ public class QuestionnaireInjector {
 
     void injectDependency () {
         QuestionnaireFragment.injectIQuestionnairePresenter(QuestionnairePresenter.getInstance());
+        QuestionnaireFragment.setAdapter(QuestionnaireAdapter.getInstance());
 
         // TODO: Add your class dependency in this module here
     }

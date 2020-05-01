@@ -19,27 +19,37 @@
         <RadioButton
             android:id="@+id/rb_first"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@android:color/white"/>
 
         <RadioButton
             android:id="@+id/rb_second"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/rb_third"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/rb_fourth"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="@android:color/white"/>
 
         <RadioButton
             android:id="@+id/rb_fifth"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="@android:color/white"/>
     </RadioGroup>
 
     <TextView

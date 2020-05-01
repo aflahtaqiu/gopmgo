@@ -120,6 +120,12 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
         binding.progressbarQuestionnaire.setProgress(progress);
     }
 
+    @Override
+    public void moveDoneQuestionnaire() {
+        Navigation.findNavController(binding.getRoot()).navigate(QuestionnaireFragmentDirections
+                .actionQuestionnaireFragmentToDoneQuestionnaireFragment());
+    }
+
     public static void injectIQuestionnairePresenter (IQuestionnairePresenter _presenter) {
         presenter = _presenter;
     }
@@ -130,6 +136,6 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
 
     @Override
     public void onQuestSelected(int idQuest, int answer) {
-        presenter.saveAnswer(idQuest, answer);
+        presenter.setAnswerMap(idQuest, answer);
     }
 }

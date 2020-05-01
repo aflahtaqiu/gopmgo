@@ -10,6 +10,7 @@ public interface IQuestionnairePresenter extends IBasePresenter {
     void injectView(IQuestionnaireView _view);
     void getQuestionnaires (Context context, String roleQuest);
     void updateQuestionnaires();
-    void saveAnswer(int idQuestion, int answer);
+    void setAnswerMap(int idQuestion, int answer);
+    void saveAnswersToSP();
     HashMap<Integer, Integer> storeAnswer();
 }

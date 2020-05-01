@@ -1,7 +1,6 @@
 package com.gopmgo.module.questionnaire;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.data.source.IQuestionnaireDataSource;
@@ -11,7 +10,6 @@ import com.gopmgo.model.Questionnaire;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class QuestionnairePresenter implements IQuestionnairePresenter {
@@ -88,17 +86,20 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
             view.setListQuestionnaires(showingQuestions);
             showingQuestions.clear();
         } else {
-
-            for (Map.Entry<Integer, Integer> entry : answerMaps.entrySet()) {
-                Log.e("lele", "soal: " + entry.getKey() + "; jawaban: " + entry.getValue());
-            }
+            saveAnswersToSP();
+            view.moveDoneQuestionnaire();
             view.showMessage("The questionnaire has done.");
         }
     }
 
     @Override
-    public void saveAnswer(int idQuestion, int answer) {
+    public void setAnswerMap(int idQuestion, int answer) {
         answerMaps.put(idQuestion,answer);
+    }
+
+    @Override
+    public void saveAnswersToSP() {
+        SharedPrefUtils.setObjectSharedPref("answered_question", answerMaps);
     }
 
     @Override

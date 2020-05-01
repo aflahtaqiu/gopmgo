@@ -29,6 +29,14 @@
             app:destination="@id/mobile_navigation"
             app:launchSingleTop="false"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_questionnaireFragment_to_doneQuestionnaireFragment"
+            app:destination="@id/doneQuestionnaireFragment" />
     </fragment>
     <include app:graph="@navigation/mobile_navigation" />
+    <fragment
+        android:id="@+id/doneQuestionnaireFragment"
+        android:name="com.gopmgo.module.done_questionnaire.DoneQuestionnaireFragment"
+        android:label="fragment_done_questionnaire"
+        tools:layout="@layout/fragment_done_questionnaire" />
 </navigation>

@@ -12,4 +12,5 @@ public interface IQuestionnaireView extends IBaseView {
     void setMaxQuestionnaire(int maxValue);
     void setFilledQuestionnaire(int value);
     void setProgress(int progress);
+    void moveDoneQuestionnaire();
 }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.Navigation;
+
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentDoneQuestionnaireBinding;
@@ -19,7 +21,8 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
     private static IDoneQuestionnairePresenter presenter;
 
     private FragmentDoneQuestionnaireBinding binding;
-
+    private String devRoleQuest = "dev";
+    private String pmRoleQuest = "pm";
 
     public DoneQuestionnaireFragment() {
         // Fragment Constructor
@@ -34,6 +37,13 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
                              Bundle savedInstanceState) {
         binding = FragmentDoneQuestionnaireBinding.inflate(inflater, container, false);
 
+        binding.btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
+                        .actionDoneQuestionnaireFragmentToResultAsPmFragment2());
+            }
+        });
 
         return binding.getRoot();
     }

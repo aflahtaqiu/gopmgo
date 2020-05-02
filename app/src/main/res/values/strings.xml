@@ -24,9 +24,12 @@
     <string name="title_self_repair">Self Repair</string>
     <string name="title_refactoring">Refactoring</string>
 
-
     <string name="title_refactored_solution">Refactored Solution</string>
     <string name="title_question_refactored_solution">What"'"s band aid, self repair and refactored solution?</string>
+
+    <string name="title_no_result_data">There"'"s no problem found currently.</string>
+
+    <string name="text_no_result_data">You must answer the questionnaire to diagnose your team or manager and get treatment recommendation from us</string>
 
     <string name="text_bandaid_refactored_solution"><![CDATA[<b>Band Aid</b>]]> is a short-term fix or coping strategy for those in the midst of the antipattern who have neither the time nor influence to refactor it properly.</string>
     <string name="text_selfrepair_refactored_solution"><![CDATA[<b>Self Repair</b>]]> is a first step for someone perpetuating the antipattern - how you can help yourself improve.</string>

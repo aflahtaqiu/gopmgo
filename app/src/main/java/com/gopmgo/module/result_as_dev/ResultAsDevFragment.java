@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentResultAsDevBinding;
+import com.gopmgo.module.result_as_pm.IResultAsPmAdapter;
 
 
 public class ResultAsDevFragment extends BaseFragment implements IResultAsDevView {

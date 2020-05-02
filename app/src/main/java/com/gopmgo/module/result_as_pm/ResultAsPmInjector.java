@@ -18,6 +18,7 @@ public class ResultAsPmInjector {
 
     void injectDependency() {
         ResultAsPmFragment.injectIResultAsPmPresenter(ResultAsPmPresenter.getInstance());
+        ResultAsPmFragment.injectAdapter(ResultAsPmAdapter.getInstance());
 
         // TODO: Add your class dependency in this module here
     }

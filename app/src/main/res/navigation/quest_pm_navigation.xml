@@ -38,5 +38,14 @@
         android:id="@+id/doneQuestionnaireFragment"
         android:name="com.gopmgo.module.done_questionnaire.DoneQuestionnaireFragment"
         android:label="fragment_done_questionnaire"
-        tools:layout="@layout/fragment_done_questionnaire" />
+        tools:layout="@layout/fragment_done_questionnaire" >
+        <action
+            android:id="@+id/action_doneQuestionnaireFragment_to_resultAsPmFragment2"
+            app:destination="@id/resultAsPmFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultAsPmFragment2"
+        android:name="com.gopmgo.module.result_as_pm.ResultAsPmFragment"
+        android:label="fragment_result_as_pm"
+        tools:layout="@layout/fragment_result_as_pm" />
 </navigation>

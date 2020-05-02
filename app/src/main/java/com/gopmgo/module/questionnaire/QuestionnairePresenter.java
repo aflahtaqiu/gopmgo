@@ -20,6 +20,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     private String devRoleQuest = "dev";
     private String pmRoleQuest = "pm";
+    private String sharedPrefKey = "answered_question";
 
     private List<Questionnaire> questions = new ArrayList<>();
     private List<Questionnaire> showingQuestions = new ArrayList<>();
@@ -78,7 +79,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
             showingQuestions.clear();
 
             int maxCount = questions.size() > 3 ? 2 : questions.size()-1;
-            for (int i=maxCount;i>=0;i--) {
+            for (int i=maxCount; i>=0; i--) {
                 showingQuestions.add(questions.get(i));
                 questions.remove(i);
             }
@@ -94,12 +95,13 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     @Override
     public void setAnswerMap(int idQuestion, int answer) {
-        answerMaps.put(idQuestion,answer);
+        if (answer >= 3)
+            answerMaps.put(idQuestion,answer);
     }
 
     @Override
     public void saveAnswersToSP() {
-        SharedPrefUtils.setObjectSharedPref("answered_question", answerMaps);
+        SharedPrefUtils.setObjectSharedPref(sharedPrefKey, answerMaps);
     }
 
     @Override

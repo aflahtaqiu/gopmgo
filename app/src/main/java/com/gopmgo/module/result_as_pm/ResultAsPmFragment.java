@@ -15,7 +15,7 @@ import com.gopmgo.model.AntiPattern;
 import java.util.List;
 
 
-public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView {
+public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView, IResultPmAdapterListener {
 
     private static IResultAsPmPresenter presenter;
     private static IResultAsPmAdapter adapter;
@@ -50,13 +50,6 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView 
                         .actionResultAsPmFragmentToLikelihoodSeverityFragment());
             }
         });
-
-        binding.imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(ResultAsPmFragmentDirections.actionResultAsPmFragmentToDetailAntipatternFragment2());
-            }
-        });
         return binding.getRoot();
     }
 
@@ -76,7 +69,7 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView 
 
     private void configAdapter() {
         adapter.setContext(getContext());
-//        adapter.setListener(this);
+        adapter.setListener(this);
         adapter.setAdapter(binding.rvResultPm);
     }
 
@@ -121,5 +114,11 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView 
     @Override
     public void setListAntiPattern(List<AntiPattern> antiPatternList) {
         adapter.updateData(antiPatternList);
+    }
+
+    @Override
+    public void onItemClicked(int idAntiPattern) {
+        Navigation.findNavController(binding.getRoot()).navigate(ResultAsPmFragmentDirections
+                .actionResultAsPmFragmentToDetailAntipatternFragment2(idAntiPattern));
     }
 }

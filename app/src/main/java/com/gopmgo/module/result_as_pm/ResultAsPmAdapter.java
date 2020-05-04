@@ -2,6 +2,7 @@ package com.gopmgo.module.result_as_pm;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,8 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
     private Context context;
     private List<AntiPattern> items = new ArrayList<>();
 
+    private IResultPmAdapterListener listener;
+
     private static ResultAsPmAdapter instance;
 
     public static ResultAsPmAdapter getInstance() {
@@ -32,6 +35,11 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
             instance = new ResultAsPmAdapter();
         }
         return instance;
+    }
+
+    @Override
+    public void setListener(IResultPmAdapterListener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -47,6 +55,13 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
 
         holder.binding.tvAntipatternTitle.setText(item.getName());
         holder.binding.tvDetailAntipattern.setText(item.getDefinition());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClicked(item.getId());
+            }
+        });
     }
 
     @Override

@@ -31,15 +31,6 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
 
     private IQuestAdapterListener listener;
 
-    private static QuestionnaireAdapter instance;
-
-    public static QuestionnaireAdapter getInstance() {
-        if (instance == null) {
-            instance = new QuestionnaireAdapter();
-        }
-        return instance;
-    }
-
     @Override
     public void setListener(IQuestAdapterListener listener) {
         this.listener = listener;

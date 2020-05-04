@@ -1,21 +1,20 @@
-package com.gopmgo.module.result_as_pm;
+package com.gopmgo.module.band_aid;
 
 import android.content.Context;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gopmgo.model.AntiPattern;
+import com.gopmgo.model.AntiPatternSolution;
 
 import java.util.List;
 
 /**
- * Created by aflah on 02/05/20
+ * Created by aflah on 04/05/20
  * Email  : aflahtaqiusondha@gmail.com
  * Github : https://github.com/aflahtaqiu
  */
-public interface IResultAsPmAdapter {
-    void updateData(List<AntiPattern> data);
+public interface IBandAidAdapter {
+    void updateData(List<AntiPatternSolution> data);
     void setContext(Context context);
-    void setListener(IResultPmAdapterListener listener);
     void setAdapter(RecyclerView recyclerView);
 }

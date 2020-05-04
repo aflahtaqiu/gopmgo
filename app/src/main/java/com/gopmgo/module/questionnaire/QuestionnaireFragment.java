@@ -64,10 +64,10 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     public void onResume() {
         presenter.getQuestionnaires(getContext(), roleQuest);
 
+        binding.rvQuestionnaire.setLayoutManager(new LinearLayoutManager(getContext()));
+
         adapter.setContext(getContext());
         adapter.setListener(this);
-
-        binding.rvQuestionnaire.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setAdapter(binding.rvQuestionnaire);
         super.onResume();
     }

@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentResultAsDevBinding;
+import com.gopmgo.model.AntiPattern;
 import com.gopmgo.module.result_as_pm.IResultAsPmAdapter;
+
+import java.util.List;
 
 
 public class ResultAsDevFragment extends BaseFragment implements IResultAsDevView {
@@ -58,5 +61,20 @@ public class ResultAsDevFragment extends BaseFragment implements IResultAsDevVie
     @Override
     public void injectPresenter() {
         presenter.injectView(this);
+    }
+
+    @Override
+    public void showDataLayout() {
+
+    }
+
+    @Override
+    public void hideDataLayout() {
+
+    }
+
+    @Override
+    public void setListAntiPattern(List<AntiPattern> antiPatternList) {
+
     }
 }

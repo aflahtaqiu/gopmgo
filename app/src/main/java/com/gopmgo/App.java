@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.di.DataInjector;
+import com.gopmgo.module.band_aid.BandAidInjector;
+import com.gopmgo.module.band_aid.BandAidPresenter;
 import com.gopmgo.module.questionnaire.QuestionnaireInjector;
 import com.gopmgo.module.questionnaire.QuestionnairePresenter;
 import com.gopmgo.module.result_as_pm.ResultAsPmInjector;
@@ -30,5 +32,8 @@ public class App extends Application {
 
         ResultAsPmInjector.getInstance();
         ResultAsPmPresenter.setDataInjector(DataInjector.getInstance());
+
+        BandAidInjector.getInstance();
+        BandAidPresenter.setDataInjector(DataInjector.getInstance());
     }
 }

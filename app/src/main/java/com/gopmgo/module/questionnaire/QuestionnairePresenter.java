@@ -20,13 +20,13 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     private String devRoleQuest = "dev";
     private String pmRoleQuest = "pm";
-    private String sharedPrefKey = "answered_question";
+    private String sharedPrefKey = "answered_question_";
 
     private List<Questionnaire> questions = new ArrayList<>();
     private List<Questionnaire> showingQuestions = new ArrayList<>();
     private HashMap<Integer, Integer> answerMaps = new HashMap<>();
 
-    private int maxQuestionneire;
+    private int maxQuestionnaire;
 
     public static QuestionnairePresenter getInstance () {
         if(instance == null) {
@@ -42,6 +42,9 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     @Override
     public void getQuestionnaires(Context context, String roleQuest) {
+
+        sharedPrefKey += roleQuest;
+
         if (roleQuest.equalsIgnoreCase(devRoleQuest)) {
             dataInjector.provideQuestionnaireRepository(context).getDevQuestionnaires(
                     new IQuestionnaireDataSource.QuestionnaireCallback() {
@@ -52,7 +55,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
                         @Override
                         public void onError(String errorMessage) {
-
+                            view.showMessage(errorMessage);
                         }
                     });
         } else if (roleQuest.equalsIgnoreCase(pmRoleQuest)) {
@@ -64,7 +67,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
                 @Override
                 public void onError(String errorMessage) {
-
+                    view.showMessage(errorMessage);
                 }
             });
         }
@@ -72,8 +75,8 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     @Override
     public void updateQuestionnaires() {
-        view.setProgress(maxQuestionneire - questions.size());
-        view.setFilledQuestionnaire(maxQuestionneire - questions.size());
+        view.setProgress(maxQuestionnaire - questions.size());
+        view.setFilledQuestionnaire(maxQuestionnaire - questions.size());
 
         if (questions.size() > 0) {
             showingQuestions.clear();
@@ -89,7 +92,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
         } else {
             saveAnswersToSP();
             view.moveDoneQuestionnaire();
-            view.showMessage("The questionnaire has done.");
+            view.showMessage("The questionnaire has been done.");
         }
     }
 
@@ -119,7 +122,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
             questions.remove(i);
         }
 
-        maxQuestionneire = data.size();
+        maxQuestionnaire = data.size();
         view.setListQuestionnaires(showingQuestions);
         view.setMaxQuestionnaire(data.size());
 

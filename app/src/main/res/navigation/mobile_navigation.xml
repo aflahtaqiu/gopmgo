@@ -61,6 +61,9 @@
             android:id="@+id/action_detailAntipatternFragment_to_refactoredSolutionFragment"
             app:destination="@id/refactoredSolutionFragment"
             app:popUpTo="@id/detailAntipatternFragment" />
+        <argument
+            android:name="ID_ANTIPATTERN"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/bandAidFragment"

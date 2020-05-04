@@ -18,7 +18,7 @@ public class BandAidInjector {
 
     void injectDependency() {
         BandAidFragment.injectIBandAidPresenter(BandAidPresenter.getInstance());
-
+        BandAidFragment.injectAdapter(new BandAidAdapter());
         // TODO: Add your class dependency in this module here
     }
 }

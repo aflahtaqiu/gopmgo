@@ -19,7 +19,7 @@ public class ResultAsPmPresenter implements IResultAsPmPresenter {
     private static IDataInjector dataInjector;
     private IResultAsPmView view;
     private HashMap<Integer, Integer> answerMaps = new HashMap<>();
-    private String sharedPrefKey = "answered_question";
+    private String sharedPrefKey = "answered_question_pm";
 
     public static ResultAsPmPresenter getInstance() {
         if (instance == null) {
@@ -56,7 +56,7 @@ public class ResultAsPmPresenter implements IResultAsPmPresenter {
 
             @Override
             public void onError(String errorMessage) {
-
+                view.showMessage(errorMessage);
             }
         });
     }
@@ -68,6 +68,6 @@ public class ResultAsPmPresenter implements IResultAsPmPresenter {
 
     @Override
     public boolean isAnsweredQuestionnaire() {
-        return !answerMaps.isEmpty();
+        return answerMaps != null && !answerMaps.isEmpty();
     }
 }

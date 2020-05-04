@@ -18,7 +18,7 @@ public class ResultAsDevInjector {
 
     void injectDependency() {
         ResultAsDevFragment.injectIResultAsDevPresenter(ResultAsDevPresenter.getInstance());
-
+        ResultAsDevFragment.injectAdapter(new ResultAsDevAdapter());
         // TODO: Add your class dependency in this module here
     }
 }

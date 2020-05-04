@@ -8,9 +8,10 @@ import com.gopmgo.module.band_aid.BandAidInjector;
 import com.gopmgo.module.band_aid.BandAidPresenter;
 import com.gopmgo.module.questionnaire.QuestionnaireInjector;
 import com.gopmgo.module.questionnaire.QuestionnairePresenter;
-import com.gopmgo.module.refactored_solution.RefactoredSolutionInjector;
 import com.gopmgo.module.refactoring.RefactoringInjector;
 import com.gopmgo.module.refactoring.RefactoringPresenter;
+import com.gopmgo.module.result_as_dev.ResultAsDevInjector;
+import com.gopmgo.module.result_as_dev.ResultAsDevPresenter;
 import com.gopmgo.module.result_as_pm.ResultAsPmInjector;
 import com.gopmgo.module.result_as_pm.ResultAsPmPresenter;
 import com.gopmgo.module.self_repair.SelfRepairInjector;
@@ -37,6 +38,9 @@ public class App extends Application {
 
         ResultAsPmInjector.getInstance();
         ResultAsPmPresenter.setDataInjector(DataInjector.getInstance());
+
+        ResultAsDevInjector.getInstance();
+        ResultAsDevPresenter.setDataInjector(DataInjector.getInstance());
 
         BandAidInjector.getInstance();
         BandAidPresenter.setDataInjector(DataInjector.getInstance());

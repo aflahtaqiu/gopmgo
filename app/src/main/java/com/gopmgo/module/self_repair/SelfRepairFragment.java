@@ -6,31 +6,42 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentSelfRepairBinding;
+import com.gopmgo.model.AntiPatternSolution;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternFragmentDirections;
+
+import java.util.List;
 
 
 public class SelfRepairFragment extends BaseFragment implements ISelfRepairView {
 
+    private static ISelfRepairAdapter adapter;
     private static ISelfRepairPresenter presenter;
 
     private FragmentSelfRepairBinding binding;
 
+    private int idAntiPattern;
 
-    public SelfRepairFragment() {
-        // Fragment Constructor
+    public SelfRepairFragment(int idAntiPattern) {
+        this.idAntiPattern = idAntiPattern;
     }
 
     public static void injectISelfRepairPresenter(ISelfRepairPresenter _presenter) {
         presenter = _presenter;
     }
 
+    public static void injectAdapter (ISelfRepairAdapter _adapter) {
+        adapter = _adapter;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSelfRepairBinding.inflate(inflater, container, false);
+        injectPresenter();
 
         binding.ivQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,9 +55,20 @@ public class SelfRepairFragment extends BaseFragment implements ISelfRepairView 
     }
 
     @Override
+    public void onResume() {
+        binding.rvSelfRepair.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        adapter.setContext(getContext());
+        adapter.setAdapter(binding.rvSelfRepair);
+
+        presenter.getSolutionList(getContext(), idAntiPattern);
+        super.onResume();
+    }
+
+    @Override
     public void onDestroyView() {
-        super.onDestroyView();
         binding = null;
+        super.onDestroyView();
     }
 
     @Override
@@ -67,5 +89,10 @@ public class SelfRepairFragment extends BaseFragment implements ISelfRepairView 
     @Override
     public void injectPresenter() {
         presenter.injectView(this);
+    }
+
+    @Override
+    public void showListSolution(List<AntiPatternSolution> solutionList) {
+        adapter.updateData(solutionList);
     }
 }

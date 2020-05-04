@@ -10,6 +10,8 @@ import com.gopmgo.module.questionnaire.QuestionnaireInjector;
 import com.gopmgo.module.questionnaire.QuestionnairePresenter;
 import com.gopmgo.module.result_as_pm.ResultAsPmInjector;
 import com.gopmgo.module.result_as_pm.ResultAsPmPresenter;
+import com.gopmgo.module.self_repair.SelfRepairInjector;
+import com.gopmgo.module.self_repair.SelfRepairPresenter;
 import com.gopmgo.module.splash_screen.SplashScreenActivity;
 
 
@@ -35,5 +37,8 @@ public class App extends Application {
 
         BandAidInjector.getInstance();
         BandAidPresenter.setDataInjector(DataInjector.getInstance());
+
+        SelfRepairInjector.getInstance();
+        SelfRepairPresenter.setDataInjector(DataInjector.getInstance());
     }
 }

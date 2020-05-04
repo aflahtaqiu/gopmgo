@@ -18,7 +18,7 @@ public class SelfRepairInjector {
 
     void injectDependency() {
         SelfRepairFragment.injectISelfRepairPresenter(SelfRepairPresenter.getInstance());
-
+        SelfRepairFragment.injectAdapter(new SelfRepairAdapter());
         // TODO: Add your class dependency in this module here
     }
 }

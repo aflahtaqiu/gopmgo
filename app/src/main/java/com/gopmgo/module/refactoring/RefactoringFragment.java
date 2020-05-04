@@ -1,7 +1,6 @@
 package com.gopmgo.module.refactoring;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +12,12 @@ import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentRefactoringBinding;
 import com.gopmgo.model.AntiPatternSolution;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternFragmentDirections;
+import com.gopmgo.module.detail_antipattern.ISolutionConnector;
 
 import java.util.List;
 
 
-public class RefactoringFragment extends BaseFragment implements IRefactoringView {
+public class RefactoringFragment extends BaseFragment implements IRefactoringView, ISolutionConnector {
 
     private static IRefactoringAdapter adapter;
     private static IRefactoringPresenter presenter;
@@ -28,6 +28,9 @@ public class RefactoringFragment extends BaseFragment implements IRefactoringVie
 
     public RefactoringFragment(int idAntiPattern) {
         this.idAntiPattern = idAntiPattern;
+    }
+
+    public RefactoringFragment() {
     }
 
     public static void injectIRefactoringPresenter(IRefactoringPresenter _presenter) {
@@ -95,8 +98,10 @@ public class RefactoringFragment extends BaseFragment implements IRefactoringVie
     @Override
     public void showListSolution(List<AntiPatternSolution> solutionList) {
         adapter.updateData(solutionList);
-        for (AntiPatternSolution solution : solutionList) {
-            Log.e("lele", solution.toString());
-        }
+    }
+
+    @Override
+    public void setIdAntiPattern(int idAntiPattern) {
+        this.idAntiPattern = idAntiPattern;
     }
 }

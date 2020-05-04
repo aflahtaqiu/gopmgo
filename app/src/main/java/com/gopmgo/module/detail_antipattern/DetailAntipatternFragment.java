@@ -5,25 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;
 
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentDetailAntipatternBinding;
-import com.gopmgo.module.band_aid.BandAidFragment;
-import com.gopmgo.module.refactoring.RefactoringFragment;
-import com.gopmgo.module.self_repair.SelfRepairFragment;
 
 
 public class DetailAntipatternFragment extends BaseFragment implements IDetailAntipatternView {
 
     private static IDetailAntipatternPresenter presenter;
+    private static IFragmentAdapter adapter;
 
     private FragmentDetailAntipatternBinding binding;
 
     private int idAntiPattern;
-
 
     public DetailAntipatternFragment() {
         // Fragment Constructor
@@ -33,10 +28,17 @@ public class DetailAntipatternFragment extends BaseFragment implements IDetailAn
         presenter = _presenter;
     }
 
+    public static void injectAdapter(IFragmentAdapter _adapter){
+        adapter = _adapter;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentDetailAntipatternBinding.inflate(inflater, container, false);
+
+        idAntiPattern = DetailAntipatternFragmentArgs.fromBundle(getArguments()).getIDANTIPATTERN();
+        adapter = new DetailAntipatternFragmentAdapter(getChildFragmentManager());
 
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,30 +51,20 @@ public class DetailAntipatternFragment extends BaseFragment implements IDetailAn
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        idAntiPattern = DetailAntipatternFragmentArgs.fromBundle(getArguments()).getIDANTIPATTERN();
+    public void onResume() {
+        adapter.setIdAntiPattern(idAntiPattern);
+        adapter.setViewPagerAdapter(binding.viewpagerDetailAntipattern);
 
-        DetailAntipatternFragmentAdapter adapter = new DetailAntipatternFragmentAdapter(getChildFragmentManager());
-        adapter.addFragment(new BandAidFragment(idAntiPattern), "Band Aid");
-        adapter.addFragment(new SelfRepairFragment(idAntiPattern), "Self Repair");
-        adapter.addFragment(new RefactoringFragment(idAntiPattern), "Refactoring");
-
-        binding.viewpagerDetailAntipattern.setAdapter(adapter);
         binding.tablayoutDetailAntipattern.setupWithViewPager(binding.viewpagerDetailAntipattern);
 
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
 
         super.onResume();
     }
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         binding = null;
+        super.onDestroyView();
     }
 
     @Override

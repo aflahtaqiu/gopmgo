@@ -12,11 +12,12 @@ import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentBandAidBinding;
 import com.gopmgo.model.AntiPatternSolution;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternFragmentDirections;
+import com.gopmgo.module.detail_antipattern.ISolutionConnector;
 
 import java.util.List;
 
 
-public class BandAidFragment extends BaseFragment implements IBandAidView {
+public class BandAidFragment extends BaseFragment implements IBandAidView, ISolutionConnector {
 
     private static IBandAidPresenter presenter;
     private static IBandAidAdapter adapter;
@@ -27,6 +28,9 @@ public class BandAidFragment extends BaseFragment implements IBandAidView {
 
     public BandAidFragment(int idAntiPattern) {
         this.idAntiPattern = idAntiPattern;
+    }
+
+    public BandAidFragment() {
     }
 
     public static void injectIBandAidPresenter(IBandAidPresenter _presenter) {
@@ -94,5 +98,10 @@ public class BandAidFragment extends BaseFragment implements IBandAidView {
     @Override
     public void showListSolution(List<AntiPatternSolution> solutionList) {
         adapter.updateData(solutionList);
+    }
+
+    @Override
+    public void setIdAntiPattern(int idAntiPattern) {
+        this.idAntiPattern = idAntiPattern;
     }
 }

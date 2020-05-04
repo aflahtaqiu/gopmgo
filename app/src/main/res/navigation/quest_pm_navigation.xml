@@ -25,27 +25,23 @@
             android:name="ROLE_QUEST"
             app:argType="string" />
         <action
-            android:id="@+id/action_questionnaireFragment_to_mobile_navigation2"
-            app:destination="@id/mobile_navigation"
-            app:launchSingleTop="false"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_questionnaireFragment_to_doneQuestionnaireFragment"
             app:destination="@id/doneQuestionnaireFragment" />
+        <action
+            android:id="@+id/action_questionnaireFragment_to_mainActivity2"
+            app:destination="@id/mainActivity" />
     </fragment>
-    <include app:graph="@navigation/mobile_navigation" />
     <fragment
         android:id="@+id/doneQuestionnaireFragment"
         android:name="com.gopmgo.module.done_questionnaire.DoneQuestionnaireFragment"
         android:label="fragment_done_questionnaire"
         tools:layout="@layout/fragment_done_questionnaire" >
         <action
-            android:id="@+id/action_doneQuestionnaireFragment_to_resultAsPmFragment2"
-            app:destination="@id/resultAsPmFragment2" />
+            android:id="@+id/action_doneQuestionnaireFragment_to_mainActivity2"
+            app:destination="@id/mainActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/resultAsPmFragment2"
-        android:name="com.gopmgo.module.result_as_pm.ResultAsPmFragment"
-        android:label="fragment_result_as_pm"
-        tools:layout="@layout/fragment_result_as_pm" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.gopmgo.MainActivity"
+        android:label="MainActivity" />
 </navigation>

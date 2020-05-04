@@ -3,16 +3,13 @@ package com.gopmgo;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,24 +28,15 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                switch (destination.getId()) {
-                    case R.id.homeFragment:
-                    case R.id.resultAsPmFragment:
-                    case R.id.resultAsDevFragment:
-                        showBottomNavigation(); break;
-                    default: hideBottomNavigation();
-                }
-
-                switch (destination.getId()) {
-                    case R.id.preQuestDevFragment: getSupportActionBar().hide(); break;
-                    default: getSupportActionBar().show();  
-                }
-
-                getSupportActionBar().setTitle(destination.getLabel());
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            switch (destination.getId()) {
+                case R.id.homeFragment:
+                case R.id.resultAsPmFragment:
+                case R.id.resultAsDevFragment:
+                    showBottomNavigation(); break;
+                default: hideBottomNavigation();
             }
+            getSupportActionBar().setTitle(destination.getLabel());
         });
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -64,12 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void hideBottomNavigation() {
         if (navView.getVisibility() == View.VISIBLE && navView.getAlpha() == 1f) {
             navView.animate().alpha(0f)
-                    .withEndAction(new Runnable() {
-                        @Override
-                        public void run() {
-                            navView.setVisibility(View.GONE);
-                        }
-                    }).setDuration(0);
+                    .withEndAction(() -> navView.setVisibility(View.GONE)).setDuration(0);
         }
     }
 

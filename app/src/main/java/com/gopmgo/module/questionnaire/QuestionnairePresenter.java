@@ -112,10 +112,8 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
         return this.answerMaps;
     }
 
-    void setInitialData (List<Questionnaire> data) {
-        for (Questionnaire questionnaire : data) {
-            questions.add(questionnaire);
-        }
+    private void setInitialData(List<Questionnaire> data) {
+        questions.addAll(data);
 
         for (int i=0;i<3;i++) {
             showingQuestions.add(questions.get(i));

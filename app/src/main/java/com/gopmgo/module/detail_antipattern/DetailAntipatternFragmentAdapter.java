@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +17,31 @@ import java.util.List;
  */
 
 
-public class DetailAntipatternFragmentAdapter extends FragmentPagerAdapter {
+public class DetailAntipatternFragmentAdapter extends FragmentPagerAdapter implements IFragmentAdapter {
 
-    private final List<Fragment> fragmentList = new ArrayList<>();
-    private final List<String> fragmentTitleList = new ArrayList<>();
+    private static List<Fragment> fragmentList = new ArrayList<>();
+    private static List<String> fragmentTitleList = new ArrayList<>();
+
+    private int idAntiPattern;
+
+    private static ISolutionConnector bandAidConnector;
+    private static ISolutionConnector refactoringConnector;
+    private static ISolutionConnector selfRepairConnector;
 
     public DetailAntipatternFragmentAdapter(@NonNull FragmentManager fm) {
         super(fm);
+    }
+
+    public static void injectBandAidConnector(ISolutionConnector _bandAidConnector) {
+        bandAidConnector = _bandAidConnector;
+    }
+
+    public static void injectRefactoringConnector(ISolutionConnector _refactoringConnector) {
+        refactoringConnector = _refactoringConnector;
+    }
+
+    public static void injectSelfRepairConnector(ISolutionConnector _selfRepairConnector) {
+        selfRepairConnector = _selfRepairConnector;
     }
 
     @NonNull
@@ -36,7 +55,7 @@ public class DetailAntipatternFragmentAdapter extends FragmentPagerAdapter {
         return fragmentList.size();
     }
 
-    void addFragment(Fragment fragment, String fragmentTitle) {
+    public static void addFragment(Fragment fragment, String fragmentTitle) {
         fragmentList.add(fragment);
         fragmentTitleList.add(fragmentTitle);
     }
@@ -45,5 +64,19 @@ public class DetailAntipatternFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return fragmentTitleList.get(position);
+    }
+
+    @Override
+    public void setViewPagerAdapter(ViewPager viewPager) {
+        viewPager.setAdapter(this);
+    }
+
+    @Override
+    public void setIdAntiPattern(int idAntiPattern) {
+        this.idAntiPattern = idAntiPattern;
+
+        bandAidConnector.setIdAntiPattern(idAntiPattern);
+        selfRepairConnector.setIdAntiPattern(idAntiPattern);
+        refactoringConnector.setIdAntiPattern(idAntiPattern);
     }
 }

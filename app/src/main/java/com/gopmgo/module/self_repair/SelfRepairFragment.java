@@ -12,11 +12,12 @@ import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentSelfRepairBinding;
 import com.gopmgo.model.AntiPatternSolution;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternFragmentDirections;
+import com.gopmgo.module.detail_antipattern.ISolutionConnector;
 
 import java.util.List;
 
 
-public class SelfRepairFragment extends BaseFragment implements ISelfRepairView {
+public class SelfRepairFragment extends BaseFragment implements ISelfRepairView, ISolutionConnector {
 
     private static ISelfRepairAdapter adapter;
     private static ISelfRepairPresenter presenter;
@@ -25,11 +26,7 @@ public class SelfRepairFragment extends BaseFragment implements ISelfRepairView 
 
     private int idAntiPattern;
 
-    public SelfRepairFragment(int idAntiPattern) {
-        this.idAntiPattern = idAntiPattern;
-    }
-
-    public static void injectISelfRepairPresenter(ISelfRepairPresenter _presenter) {
+    static void injectISelfRepairPresenter(ISelfRepairPresenter _presenter) {
         presenter = _presenter;
     }
 
@@ -43,13 +40,8 @@ public class SelfRepairFragment extends BaseFragment implements ISelfRepairView 
         binding = FragmentSelfRepairBinding.inflate(inflater, container, false);
         injectPresenter();
 
-        binding.ivQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(DetailAntipatternFragmentDirections
-                        .actionDetailAntipatternFragmentToRefactoredSolutionFragment());
-            }
-        });
+        binding.ivQuestion.setOnClickListener(v -> Navigation.findNavController(v).navigate(DetailAntipatternFragmentDirections
+                .actionDetailAntipatternFragmentToRefactoredSolutionFragment()));
 
         return binding.getRoot();
     }
@@ -94,5 +86,10 @@ public class SelfRepairFragment extends BaseFragment implements ISelfRepairView 
     @Override
     public void showListSolution(List<AntiPatternSolution> solutionList) {
         adapter.updateData(solutionList);
+    }
+
+    @Override
+    public void setIdAntiPattern(int idAntiPattern) {
+        this.idAntiPattern = idAntiPattern;
     }
 }

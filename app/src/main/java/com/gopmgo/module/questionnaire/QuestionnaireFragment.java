@@ -36,13 +36,10 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
         binding = FragmentQuestionnaireBinding.inflate(inflater, container, false);
         injectPresenter();
 
-        binding.ivClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(QuestionnaireFragmentDirections.
-                        actionQuestionnaireFragmentToMobileNavigation2());
-            }
-        });
+        binding.ivClose.setOnClickListener(v ->
+                Navigation.findNavController(v).
+                        navigate(QuestionnaireFragmentDirections.
+                                actionQuestionnaireFragmentToMainActivity2()));
 
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +72,6 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     @Override
     public void onDestroyView() {
         binding = null;
-        adapter = null;
         super.onDestroyView();
     }
 
@@ -102,6 +98,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     @Override
     public void setListQuestionnaires(List<Questionnaire> identifications) {
         adapter.updateData(identifications);
+        binding.rvQuestionnaire.scrollToPosition(0);
     }
 
     @Override

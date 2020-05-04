@@ -3,9 +3,9 @@ package com.gopmgo.module.self_repair;
 
 public class SelfRepairInjector {
 
-    public static SelfRepairInjector self_repairInjector;
+    private static SelfRepairInjector self_repairInjector;
 
-    public SelfRepairInjector() {
+    SelfRepairInjector() {
         injectDependency();
     }
 

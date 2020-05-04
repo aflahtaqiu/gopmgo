@@ -1,6 +1,13 @@
 package com.gopmgo.module.refactoring;
 
+import android.content.Context;
+
+import com.gopmgo.data.source.IAntiPatternSolutionDataSource;
 import com.gopmgo.di.IDataInjector;
+import com.gopmgo.model.AntiPatternSolution;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RefactoringPresenter implements IRefactoringPresenter {
@@ -23,5 +30,25 @@ public class RefactoringPresenter implements IRefactoringPresenter {
     @Override
     public void injectView(IRefactoringView _view) {
         view = _view;
+    }
+
+    @Override
+    public void getSolutionList(Context context, int idAntiPattern) {
+        dataInjector.provideSolutionRepository(context).getRefactorings(new IAntiPatternSolutionDataSource.SolutionCallback() {
+            @Override
+            public void onSuccess(List<AntiPatternSolution> data) {
+                List<AntiPatternSolution> solutionList = new ArrayList<>();
+                for (AntiPatternSolution solution : data) {
+                    if (solution.getIdAntiPattern() == idAntiPattern)
+                        solutionList.add(solution);
+                }
+                view.showListSolution(solutionList);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                view.showMessage(errorMessage);
+            }
+        });
     }
 }

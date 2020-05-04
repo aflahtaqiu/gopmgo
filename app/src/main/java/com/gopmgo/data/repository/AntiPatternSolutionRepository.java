@@ -60,6 +60,16 @@ public class AntiPatternSolutionRepository implements IAntiPatternSolutionDataSo
 
     @Override
     public void getRefactorings(SolutionCallback callback) {
+        remoteDataSource.getRefactorings(new SolutionCallback() {
+            @Override
+            public void onSuccess(List<AntiPatternSolution> data) {
+                callback.onSuccess(data);
+            }
 
+            @Override
+            public void onError(String errorMessage) {
+                callback.onError(errorMessage);
+            }
+        });
     }
 }

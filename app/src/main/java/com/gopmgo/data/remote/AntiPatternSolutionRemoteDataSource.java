@@ -1,8 +1,8 @@
 package com.gopmgo.data.remote;
 
+import com.gopmgo.base.BaseRemoteDataSource;
 import com.gopmgo.base.BaseResponse;
 import com.gopmgo.data.source.IAntiPatternSolutionDataSource;
-import com.gopmgo.base.BaseRemoteDataSource;
 import com.gopmgo.model.AntiPatternSolution;
 
 import java.util.List;

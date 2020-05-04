@@ -1,6 +1,7 @@
 package com.gopmgo.di;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.gopmgo.data.repository.AntiPatternRepository;
 import com.gopmgo.data.repository.AntiPatternSolutionRepository;

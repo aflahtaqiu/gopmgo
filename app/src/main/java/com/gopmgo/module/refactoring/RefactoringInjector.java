@@ -18,7 +18,7 @@ public class RefactoringInjector {
 
     void injectDependency() {
         RefactoringFragment.injectIRefactoringPresenter(RefactoringPresenter.getInstance());
-
+        RefactoringFragment.injectAdapter(new RefactoringAdapter());
         // TODO: Add your class dependency in this module here
     }
 }

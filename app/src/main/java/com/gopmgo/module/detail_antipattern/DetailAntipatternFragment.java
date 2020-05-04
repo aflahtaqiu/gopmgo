@@ -55,7 +55,7 @@ public class DetailAntipatternFragment extends BaseFragment implements IDetailAn
         DetailAntipatternFragmentAdapter adapter = new DetailAntipatternFragmentAdapter(getChildFragmentManager());
         adapter.addFragment(new BandAidFragment(idAntiPattern), "Band Aid");
         adapter.addFragment(new SelfRepairFragment(idAntiPattern), "Self Repair");
-        adapter.addFragment(new RefactoringFragment(), "Refactoring");
+        adapter.addFragment(new RefactoringFragment(idAntiPattern), "Refactoring");
 
         binding.viewpagerDetailAntipattern.setAdapter(adapter);
         binding.tablayoutDetailAntipattern.setupWithViewPager(binding.viewpagerDetailAntipattern);

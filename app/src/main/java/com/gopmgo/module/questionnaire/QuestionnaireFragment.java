@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.gopmgo.R;
 import com.gopmgo.base.BaseFragment;
+import com.gopmgo.databinding.DialogConfirmationBinding;
 import com.gopmgo.databinding.FragmentQuestionnaireBinding;
 import com.gopmgo.model.Questionnaire;
 
@@ -36,10 +39,33 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
         binding = FragmentQuestionnaireBinding.inflate(inflater, container, false);
         injectPresenter();
 
-        binding.ivClose.setOnClickListener(v ->
-                Navigation.findNavController(v).
-                        navigate(QuestionnaireFragmentDirections.
-                                actionQuestionnaireFragmentToMainActivity2()));
+        binding.ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+
+                DialogConfirmationBinding bindingDialog = DialogConfirmationBinding.inflate(LayoutInflater.from(getContext()));
+                alertDialog.setView(bindingDialog.getRoot());
+
+                bindingDialog.btnYes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Navigation.findNavController(binding.getRoot()).
+                                navigate(QuestionnaireFragmentDirections.
+                                        actionQuestionnaireFragmentToMainActivity2());
+                    }
+                });
+
+                bindingDialog.btnNo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                alertDialog.show();
+            }
+        });
 
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -45,16 +45,33 @@
             app:layout_constraintStart_toStartOf="@+id/tv_antipattern_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_antipattern_title" />
 
+        <com.hsalf.smilerating.SmileRating
+            android:id="@+id/ratingbar_likelihood"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9"/>
+
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:text="@string/title_severity"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@id/ratingbar_likelihood"
             app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+        <com.hsalf.smilerating.SmileRating
+            android:id="@+id/ratingbar_severity"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/textView9"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toEndOf="@+id/textView10"/>
 
         <TextView
             android:id="@+id/tv_detail_antipattern"

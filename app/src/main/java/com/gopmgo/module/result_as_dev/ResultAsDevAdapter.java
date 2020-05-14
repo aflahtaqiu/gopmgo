@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gopmgo.R;
 import com.gopmgo.databinding.ItemResultBinding;
 import com.gopmgo.model.AntiPattern;
+import com.hsalf.smilerating.SmileRating;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +52,17 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
     public void onBindViewHolder(ResultAsPmViewHolder holder, int position) {
         AntiPattern item = items.get(position);
 
+        int likelihood = (int) Math.round(item.getLikelihood());
+        int severity = (int) Math.round(item.getSeverity());
+
+        holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - 1);
+        holder.binding.ratingbarSeverity.setSelectedSmile(severity - 1);
+
         holder.binding.tvAntipatternTitle.setText(item.getName());
         holder.binding.tvDetailAntipattern.setText(item.getDefinition());
+
+        setRatingbarColor(holder.binding.ratingbarLikelihood);
+        setRatingbarColor(holder.binding.ratingbarSeverity);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +70,14 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
                 listener.onItemClicked(item.getId());
             }
         });
+    }
+
+    private void setRatingbarColor (SmileRating smileRating) {
+        int rating = smileRating.getRating();
+        if (rating < 3)
+            smileRating.setNormalColor(context.getResources().getColor(R.color.yellowEmoji));
+        else
+            smileRating.setNormalColor(context.getResources().getColor(R.color.orangeEmoji));
     }
 
     @Override

@@ -18,8 +18,6 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     private static QuestionnairePresenter instance;
     private static IDataInjector dataInjector;
 
-    private String devRoleQuest = "dev";
-    private String pmRoleQuest = "pm";
     private String sharedPrefKey = "answered_question_";
 
     private List<Questionnaire> questions = new ArrayList<>();
@@ -44,6 +42,9 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     public void getQuestionnaires(Context context, String roleQuest) {
 
         sharedPrefKey += roleQuest;
+
+        String devRoleQuest = "dev";
+        String pmRoleQuest = "pm";
 
         if (roleQuest.equalsIgnoreCase(devRoleQuest)) {
             dataInjector.provideQuestionnaireRepository(context).getDevQuestionnaires(
@@ -75,8 +76,9 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     @Override
     public void updateQuestionnaires() {
-        view.setProgress(maxQuestionnaire - questions.size());
-        view.setFilledQuestionnaire(maxQuestionnaire - questions.size());
+
+        view.setProgress(Math.abs(maxQuestionnaire - questions.size()));
+        view.setFilledQuestionnaire(Math.abs(maxQuestionnaire - questions.size()));
 
         if (questions.size() > 0) {
             showingQuestions.clear();

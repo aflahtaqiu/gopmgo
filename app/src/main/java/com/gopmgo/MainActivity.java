@@ -44,6 +44,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        String roleQuest = getIntent().getStringExtra("roleQuest");
+
+        if (roleQuest == null) {
+            navView.setSelectedItemId(R.id.homeFragment);
+        }
+        else{
+            if (roleQuest.equalsIgnoreCase("dev"))
+                navView.setSelectedItemId(R.id.resultAsDevFragment);
+            else if (roleQuest.equalsIgnoreCase("pm"))
+                navView.setSelectedItemId(R.id.resultAsPmFragment);
+        }
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         navController.navigateUp();
         return super.onSupportNavigateUp();

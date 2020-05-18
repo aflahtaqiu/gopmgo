@@ -28,7 +28,7 @@
             android:id="@+id/action_questionnaireFragment_to_doneQuestionnaireFragment"
             app:destination="@id/doneQuestionnaireFragment" />
         <action
-            android:id="@+id/action_questionnaireFragment_to_mainActivity2"
+            android:id="@+id/action_questionnaireFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
     </fragment>
     <fragment
@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_doneQuestionnaireFragment_to_mainActivity2"
             app:destination="@id/mainActivity" />
+        <argument
+            android:name="role_quest"
+            app:argType="string" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"

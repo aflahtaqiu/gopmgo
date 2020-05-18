@@ -26,10 +26,6 @@ public class BandAidFragment extends BaseFragment implements IBandAidView, ISolu
 
     private int idAntiPattern;
 
-    public BandAidFragment(int idAntiPattern) {
-        this.idAntiPattern = idAntiPattern;
-    }
-
     public BandAidFragment() {
     }
 

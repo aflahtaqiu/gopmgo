@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.gopmgo.R;
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.DialogConfirmationBinding;
 import com.gopmgo.databinding.FragmentQuestionnaireBinding;
@@ -52,7 +51,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
                     public void onClick(View v) {
                         Navigation.findNavController(binding.getRoot()).
                                 navigate(QuestionnaireFragmentDirections.
-                                        actionQuestionnaireFragmentToMainActivity2());
+                                        actionQuestionnaireFragmentToMainActivity());
                     }
                 });
 
@@ -146,7 +145,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     @Override
     public void moveDoneQuestionnaire() {
         Navigation.findNavController(binding.getRoot()).navigate(QuestionnaireFragmentDirections
-                .actionQuestionnaireFragmentToDoneQuestionnaireFragment());
+                .actionQuestionnaireFragmentToDoneQuestionnaireFragment(roleQuest));
     }
 
     public static void injectIQuestionnairePresenter (IQuestionnairePresenter _presenter) {

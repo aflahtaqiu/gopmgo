@@ -17,7 +17,6 @@ public class HomeFragment extends BaseFragment implements IHomeView {
 
     private FragmentHomeBinding binding;
 
-
     public HomeFragment() {
         // Fragment Constructor
     }

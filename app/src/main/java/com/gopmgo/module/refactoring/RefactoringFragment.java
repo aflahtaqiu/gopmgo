@@ -26,10 +26,6 @@ public class RefactoringFragment extends BaseFragment implements IRefactoringVie
 
     private int idAntiPattern;
 
-    public RefactoringFragment(int idAntiPattern) {
-        this.idAntiPattern = idAntiPattern;
-    }
-
     public RefactoringFragment() {
     }
 

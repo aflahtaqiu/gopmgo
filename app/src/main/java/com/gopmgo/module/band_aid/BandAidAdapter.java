@@ -35,8 +35,7 @@ public class BandAidAdapter extends RecyclerView.Adapter<BandAidAdapter.BandAidV
     public void onBindViewHolder(BandAidViewHolder holder, int position) {
         AntiPatternSolution item = items.get(position);
 
-        int number = position+1;
-        holder.binding.tvNumber.setText(number+".");
+        holder.binding.tvNumber.setText((position+1)+".");
         holder.binding.tvSolution.setText(item.getSolution().getRefactoredSolution());
     }
 

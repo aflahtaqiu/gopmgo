@@ -15,10 +15,9 @@ import com.gopmgo.databinding.ActivitySplashScreenBinding;
 public class SplashScreenActivity extends BaseActivity implements ISplashScreenView {
 
     private static ISplashScreenPresenter presenter;
+    private static Class mainClass;
 
     private ActivitySplashScreenBinding binding;
-
-    private static Class mainClass;
 
     public static void injectISplashScreenPresenter(ISplashScreenPresenter _presenter) {
         presenter = _presenter;

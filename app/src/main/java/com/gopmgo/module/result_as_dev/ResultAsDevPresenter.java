@@ -19,7 +19,6 @@ public class ResultAsDevPresenter implements IResultAsDevPresenter {
     private static IDataInjector dataInjector;
     private IResultAsDevView view;
     private HashMap<Integer, Integer> answerMaps = new HashMap<>();
-    private String sharedPrefKey = "answered_question_dev";
 
     public static ResultAsDevPresenter getInstance() {
         if (instance == null) {
@@ -63,6 +62,7 @@ public class ResultAsDevPresenter implements IResultAsDevPresenter {
 
     @Override
     public void getAnsweredQuestion() {
+        String sharedPrefKey = "answered_question_dev";
         answerMaps = (HashMap<Integer, Integer>) SharedPrefUtils.getObjectSharedPref(sharedPrefKey, null, HashMap.class);
     }
 

@@ -58,14 +58,15 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
         int likelihood = (int) Math.round(item.getLikelihood());
         int severity = (int) Math.round(item.getSeverity());
 
+
         holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - 1);
         holder.binding.ratingbarSeverity.setSelectedSmile(severity - 1);
 
-        holder.binding.tvAntipatternTitle.setText(item.getName());
-        holder.binding.tvDetailAntipattern.setText(item.getDefinition());
-
         setRatingbarColor(holder.binding.ratingbarLikelihood);
         setRatingbarColor(holder.binding.ratingbarSeverity);
+
+        holder.binding.tvAntipatternTitle.setText(item.getName());
+        holder.binding.tvDetailAntipattern.setText(item.getDefinition());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

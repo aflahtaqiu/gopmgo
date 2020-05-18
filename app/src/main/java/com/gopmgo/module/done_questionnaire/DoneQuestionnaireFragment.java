@@ -1,11 +1,13 @@
 package com.gopmgo.module.done_questionnaire;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.navigation.Navigation;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentDoneQuestionnaireBinding;
@@ -14,8 +16,9 @@ import com.gopmgo.databinding.FragmentDoneQuestionnaireBinding;
 public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQuestionnaireView {
 
     private static IDoneQuestionnairePresenter presenter;
-
+    private static Class mainClass;
     private FragmentDoneQuestionnaireBinding binding;
+    private String roleQuest;
 
     public DoneQuestionnaireFragment() {
         // Fragment Constructor
@@ -23,6 +26,10 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
 
     public static void injectIDoneQuestionnairePresenter(IDoneQuestionnairePresenter _presenter) {
         presenter = _presenter;
+    }
+
+    public static void injectMainClass (Class _class){
+        mainClass = _class;
     }
 
     @Override
@@ -33,12 +40,20 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
-                        .actionDoneQuestionnaireFragmentToMainActivity2());
+                Intent intent = new Intent(getContext(), mainClass);
+                intent.putExtra("roleQuest", roleQuest);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        roleQuest = DoneQuestionnaireFragmentArgs.fromBundle(getArguments()).getRoleQuest();
     }
 
     @Override

@@ -28,15 +28,6 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
     private List<AntiPattern> items = new ArrayList<>();
     private IResultDevAdapterListener listener;
 
-    private static ResultAsDevAdapter instance;
-
-    public static ResultAsDevAdapter getInstance() {
-        if (instance == null) {
-            instance = new ResultAsDevAdapter();
-        }
-        return instance;
-    }
-
     public void setListener(IResultDevAdapterListener listener) {
         this.listener = listener;
     }

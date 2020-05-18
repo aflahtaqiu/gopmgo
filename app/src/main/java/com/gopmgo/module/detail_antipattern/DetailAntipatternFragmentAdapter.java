@@ -22,8 +22,6 @@ public class DetailAntipatternFragmentAdapter extends FragmentPagerAdapter imple
     private static List<Fragment> fragmentList = new ArrayList<>();
     private static List<String> fragmentTitleList = new ArrayList<>();
 
-    private int idAntiPattern;
-
     private static ISolutionConnector bandAidConnector;
     private static ISolutionConnector refactoringConnector;
     private static ISolutionConnector selfRepairConnector;
@@ -73,8 +71,6 @@ public class DetailAntipatternFragmentAdapter extends FragmentPagerAdapter imple
 
     @Override
     public void setIdAntiPattern(int idAntiPattern) {
-        this.idAntiPattern = idAntiPattern;
-
         bandAidConnector.setIdAntiPattern(idAntiPattern);
         selfRepairConnector.setIdAntiPattern(idAntiPattern);
         refactoringConnector.setIdAntiPattern(idAntiPattern);

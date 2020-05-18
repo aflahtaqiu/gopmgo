@@ -22,7 +22,6 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView,
 
     private FragmentResultAsPmBinding binding;
 
-
     public ResultAsPmFragment() {
         // Fragment Constructor
     }

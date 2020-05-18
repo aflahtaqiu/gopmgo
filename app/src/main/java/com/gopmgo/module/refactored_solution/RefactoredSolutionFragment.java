@@ -46,17 +46,13 @@ public class RefactoredSolutionFragment extends BaseFragment implements IRefacto
         binding.tvDetailBandAid.setText(Html.fromHtml(getResources().getString(R.string.text_bandaid_refactored_solution)));
         binding.tvDetailSelfRepair.setText(Html.fromHtml(getResources().getString(R.string.text_selfrepair_refactored_solution)));
         binding.tvDetailRefactoring.setText(Html.fromHtml(getResources().getString(R.string.text_refactoring_solution)));
-
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#1E4381'>"+getResources().getString(R.string.title_refactored_solution)+"</font>") );
+        binding.appbarToolbar.tvTitleActionBar.setText(getResources().getString(R.string.action_bar_title_refactored_solution));
 
         return binding.getRoot();
     }
 
     @Override
     public void onDestroyView() {
-
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
         binding = null;
         super.onDestroyView();
     }

@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
                     showBottomNavigation(); break;
                 default: hideBottomNavigation();
             }
-            getSupportActionBar().setTitle(destination.getLabel());
+//            getSupportActionBar().setTitle(destination.getLabel());
         });
 
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
 

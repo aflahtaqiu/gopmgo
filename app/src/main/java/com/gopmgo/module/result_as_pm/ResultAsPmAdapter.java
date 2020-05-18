@@ -71,7 +71,7 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClicked(item.getId());
+                listener.onItemClicked(item.getId(), item.getName());
             }
         });
     }

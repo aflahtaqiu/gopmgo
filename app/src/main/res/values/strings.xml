@@ -5,6 +5,7 @@
     <string name="action_bar_title_pm_result">PM Result</string>
     <string name="action_bar_title_dev_result">Dev Result</string>
     <string name="action_bar_title_likelihood_severity">Likelihood and Severity</string>
+    <string name="action_bar_title_refactored_solution">Refactored Solution</string>
 
     <string name="title_result_as_pm">Result as PM</string>
     <string name="title_result_as_dev">Result as Dev</string>
@@ -18,6 +19,7 @@
     <string name="title_likelihood">Likelihood</string>
     <string name="title_severity">Severity</string>
 
+    <string name="actionbar_title_likelihood_severity">Likelihood and Severity</string>
     <string name="title_likelihood_severity">What"'"s Likelihood and Severity?</string>
 
     <string name="title_band_aid">Band Aid</string>

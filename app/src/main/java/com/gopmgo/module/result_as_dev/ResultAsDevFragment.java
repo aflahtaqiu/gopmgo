@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.gopmgo.R;
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentResultAsDevBinding;
 import com.gopmgo.model.AntiPattern;
@@ -41,6 +42,7 @@ public class ResultAsDevFragment extends BaseFragment implements IResultAsDevVie
         binding = FragmentResultAsDevBinding.inflate(inflater, container, false);
         injectPresenter();
 
+        binding.appbarToolbar.tvTitleActionBar.setText(getResources().getString(R.string.action_bar_title_dev_result));
         binding.rvResultDev.setLayoutManager(new LinearLayoutManager(getContext()));
 
         binding.tvDetailLikelihoodSeverity.setOnClickListener(new View.OnClickListener() {
@@ -117,8 +119,8 @@ public class ResultAsDevFragment extends BaseFragment implements IResultAsDevVie
     }
 
     @Override
-    public void onItemClicked(int idAntiPattern) {
+    public void onItemClicked(int idAntiPattern, String title) {
         Navigation.findNavController(binding.getRoot()).navigate(ResultAsDevFragmentDirections
-                .actionResultAsDevFragmentToDetailAntipatternFragment2(idAntiPattern));
+                .actionResultAsDevFragmentToDetailAntipatternFragment2(idAntiPattern, title));
     }
 }

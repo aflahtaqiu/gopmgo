@@ -7,5 +7,5 @@ package com.gopmgo.module.result_as_dev;
  */
 interface IResultDevAdapterListener {
 
-    void onItemClicked(int idAntiPattern);
+    void onItemClicked(int idAntiPattern, String title);
 }

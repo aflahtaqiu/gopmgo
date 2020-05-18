@@ -64,6 +64,9 @@
         <argument
             android:name="ID_ANTIPATTERN"
             app:argType="integer" />
+        <argument
+            android:name="antipattern_name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/bandAidFragment"

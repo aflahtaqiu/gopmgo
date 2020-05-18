@@ -19,6 +19,7 @@ public class DetailAntipatternFragment extends BaseFragment implements IDetailAn
     private FragmentDetailAntipatternBinding binding;
 
     private int idAntiPattern;
+    private String title;
 
     public DetailAntipatternFragment() {
         // Fragment Constructor
@@ -37,6 +38,7 @@ public class DetailAntipatternFragment extends BaseFragment implements IDetailAn
                              Bundle savedInstanceState) {
         binding = FragmentDetailAntipatternBinding.inflate(inflater, container, false);
 
+        title = DetailAntipatternFragmentArgs.fromBundle(getArguments()).getAntipatternName();
         idAntiPattern = DetailAntipatternFragmentArgs.fromBundle(getArguments()).getIDANTIPATTERN();
         adapter = new DetailAntipatternFragmentAdapter(getChildFragmentManager());
 
@@ -54,9 +56,9 @@ public class DetailAntipatternFragment extends BaseFragment implements IDetailAn
     public void onResume() {
         adapter.setIdAntiPattern(idAntiPattern);
         adapter.setViewPagerAdapter(binding.viewpagerDetailAntipattern);
+        binding.appbarToolbar.tvTitleActionBar.setText(title);
 
         binding.tablayoutDetailAntipattern.setupWithViewPager(binding.viewpagerDetailAntipattern);
-
 
         super.onResume();
     }

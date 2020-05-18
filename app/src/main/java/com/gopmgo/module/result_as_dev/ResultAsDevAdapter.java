@@ -58,7 +58,7 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClicked(item.getId());
+                listener.onItemClicked(item.getId(), item.getName());
             }
         });
     }

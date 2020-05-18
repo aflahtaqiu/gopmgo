@@ -7,5 +7,5 @@ package com.gopmgo.module.result_as_pm;
  */
 interface IResultPmAdapterListener {
 
-    void onItemClicked (int idAntiPattern);
+    void onItemClicked (int idAntiPattern, String title);
 }

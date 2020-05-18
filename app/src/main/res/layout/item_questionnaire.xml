@@ -9,7 +9,7 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/tv_questionnaire"
@@ -18,38 +18,47 @@
 
         <RadioButton
             android:id="@+id/rb_first"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textColor="@android:color/white"/>
+            android:button="@null"
+            android:drawableTop="@drawable/selector_rb_big"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/rb_second"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_rb_medium"
             android:text="2"
             android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/rb_third"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_rb_small"
             android:text="3"
             android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/rb_fourth"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_rb_medium"
             android:text="4"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/rb_fifth"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_rb_big"
             android:text="5"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
     </RadioGroup>
 
     <TextView
@@ -72,20 +81,24 @@
         android:id="@+id/textView24"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:gravity="center"
         android:text="Sangat Tidak Setuju"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/tv_questionnaire"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center"
         android:text="Sangat Setuju"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="@+id/tv_questionnaire"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

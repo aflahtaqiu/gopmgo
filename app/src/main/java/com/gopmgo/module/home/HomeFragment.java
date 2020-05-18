@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.navigation.Navigation;
 
+import com.gopmgo.R;
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentHomeBinding;
 
@@ -34,7 +35,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(HomeFragmentDirections
-                        .actionHomeFragmentToQuestDevActivity());
+                        .actionHomeFragmentToPreQuestionnaireFragment(getString(R.string.role_quest_dev)));
             }
         });
 
@@ -42,7 +43,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(HomeFragmentDirections
-                        .actionHomeFragmentToQuestPmActivity());
+                        .actionHomeFragmentToPreQuestionnaireFragment(getString(R.string.role_quest_pm)));
             }
         });
 

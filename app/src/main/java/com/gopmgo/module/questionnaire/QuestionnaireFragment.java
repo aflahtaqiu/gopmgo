@@ -49,9 +49,10 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
                 bindingDialog.btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        alertDialog.dismiss();
                         Navigation.findNavController(binding.getRoot()).
-                                navigate(QuestionnaireFragmentDirections.
-                                        actionQuestionnaireFragmentToMainActivity());
+                                navigate(QuestionnaireFragmentDirections
+                                        .actionQuestionnaireFragment2ToHomeFragment());
                     }
                 });
 
@@ -78,7 +79,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        roleQuest = QuestionnaireFragmentArgs.fromBundle(getArguments()).getROLEQUEST();
+        roleQuest = QuestionnaireFragmentArgs.fromBundle(getArguments()).getRoleQuest();
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -144,8 +145,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
 
     @Override
     public void moveDoneQuestionnaire() {
-        Navigation.findNavController(binding.getRoot()).navigate(QuestionnaireFragmentDirections
-                .actionQuestionnaireFragmentToDoneQuestionnaireFragment(roleQuest));
+        Navigation.findNavController(binding.getRoot()).navigate(QuestionnaireFragmentDirections.actionQuestionnaireFragment2ToDoneQuestionnaireFragment2(roleQuest));
     }
 
     public static void injectIQuestionnairePresenter (IQuestionnairePresenter _presenter) {

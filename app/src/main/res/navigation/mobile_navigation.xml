@@ -39,12 +39,8 @@
         android:label=" "
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_questDevActivity"
-            app:destination="@id/questDevActivity"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_questPmActivity"
-            app:destination="@id/questPmActivity"
+            android:id="@+id/action_homeFragment_to_preQuestionnaireFragment"
+            app:destination="@id/preQuestionnaireFragment"
             app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
@@ -103,14 +99,47 @@
         android:name="com.gopmgo.module.refactored_solution.RefactoredSolutionFragment"
         android:label="fragment_refactored_solution"
         tools:layout="@layout/fragment_refactored_solution" />
-    <activity
-        android:id="@+id/questDevActivity"
-        android:name="com.gopmgo.QuestDevActivity"
-        android:label="activity_quest_dev"
-        tools:layout="@layout/activity_quest_dev" />
-    <activity
-        android:id="@+id/questPmActivity"
-        android:name="com.gopmgo.QuestPmActivity"
-        android:label="activity_quest_pm"
-        tools:layout="@layout/activity_quest_pm" />
+    <fragment
+        android:id="@+id/questionnaireFragment2"
+        android:name="com.gopmgo.module.questionnaire.QuestionnaireFragment"
+        android:label="fragment_questionnaire"
+        tools:layout="@layout/fragment_questionnaire" >
+        <action
+            android:id="@+id/action_questionnaireFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_questionnaireFragment2_to_doneQuestionnaireFragment2"
+            app:destination="@id/doneQuestionnaireFragment2" />
+        <argument
+            android:name="role_quest"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/doneQuestionnaireFragment2"
+        android:name="com.gopmgo.module.done_questionnaire.DoneQuestionnaireFragment"
+        android:label="fragment_done_questionnaire"
+        tools:layout="@layout/fragment_done_questionnaire" >
+        <action
+            android:id="@+id/action_doneQuestionnaireFragment2_to_resultAsPmFragment"
+            app:destination="@id/resultAsPmFragment" />
+        <action
+            android:id="@+id/action_doneQuestionnaireFragment2_to_resultAsDevFragment"
+            app:destination="@id/resultAsDevFragment" />
+        <argument
+            android:name="role_quest"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/preQuestionnaireFragment"
+        android:name="com.gopmgo.module.pre_questionnaire.PreQuestionnaireFragment"
+        android:label="fragment_pre_questionnaire"
+        tools:layout="@layout/fragment_pre_questionnaire" >
+        <action
+            android:id="@+id/action_preQuestionnaireFragment_to_questionnaireFragment2"
+            app:destination="@id/questionnaireFragment2"
+            app:popUpTo="@id/preQuestionnaireFragment" />
+        <argument
+            android:name="role_quest"
+            app:argType="string" />
+    </fragment>
 </navigation>

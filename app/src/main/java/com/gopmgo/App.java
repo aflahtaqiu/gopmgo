@@ -11,6 +11,8 @@ import com.gopmgo.module.band_aid.BandAidPresenter;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternFragmentAdapter;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternInjector;
 import com.gopmgo.module.done_questionnaire.DoneQuestionnaireFragment;
+import com.gopmgo.module.pre_questionnaire.PreQuestionnaireInjector;
+import com.gopmgo.module.pre_questionnaire.PreQuestionnairePresenter;
 import com.gopmgo.module.questionnaire.QuestionnaireInjector;
 import com.gopmgo.module.questionnaire.QuestionnairePresenter;
 import com.gopmgo.module.refactoring.RefactoringFragment;
@@ -41,6 +43,8 @@ public class App extends Application {
     void addModuleDependency() {
         SplashScreenActivity.injectDestinationClass(MainActivity.class);
         DoneQuestionnaireFragment.injectMainClass(MainActivity.class);
+
+        PreQuestionnaireInjector.getInstance();
 
         QuestionnaireInjector.getInstance();
         QuestionnairePresenter.setDataInjector(DataInjector.getInstance());

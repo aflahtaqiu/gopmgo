@@ -58,7 +58,6 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
         int likelihood = (int) Math.round(item.getLikelihood());
         int severity = (int) Math.round(item.getSeverity());
 
-
         holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - 1);
         holder.binding.ratingbarSeverity.setSelectedSmile(severity - 1);
 
@@ -79,7 +78,7 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
     private void setRatingbarColor (SmileRating smileRating) {
         int rating = smileRating.getRating();
         if (rating < 3)
-            smileRating.setNormalColor(context.getResources().getColor(R.color.yellowEmoji));
+            smileRating.setAngryColor(context.getResources().getColor(R.color.yellowEmoji));
         else
             smileRating.setNormalColor(context.getResources().getColor(R.color.orangeEmoji));
     }

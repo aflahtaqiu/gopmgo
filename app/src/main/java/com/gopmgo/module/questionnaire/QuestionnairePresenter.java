@@ -3,6 +3,7 @@ package com.gopmgo.module.questionnaire;
 import android.content.Context;
 
 import com.aflah.libraryku.SharedPrefUtils;
+import com.gopmgo.R;
 import com.gopmgo.data.source.IQuestionnaireDataSource;
 import com.gopmgo.di.IDataInjector;
 import com.gopmgo.model.Questionnaire;
@@ -43,10 +44,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
         sharedPrefKey += roleQuest;
 
-        String devRoleQuest = "dev";
-        String pmRoleQuest = "pm";
-
-        if (roleQuest.equalsIgnoreCase(devRoleQuest)) {
+        if (roleQuest.equalsIgnoreCase(context.getString(R.string.role_quest_dev))) {
             dataInjector.provideQuestionnaireRepository(context).getDevQuestionnaires(
                     new IQuestionnaireDataSource.QuestionnaireCallback() {
                         @Override
@@ -59,7 +57,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
                             view.showMessage(errorMessage);
                         }
                     });
-        } else if (roleQuest.equalsIgnoreCase(pmRoleQuest)) {
+        } else if (roleQuest.equalsIgnoreCase(context.getString(R.string.role_quest_pm))) {
             dataInjector.provideQuestionnaireRepository(context).getPmQuestionnaires(new IQuestionnaireDataSource.QuestionnaireCallback() {
                 @Override
                 public void onSuccess(List<Questionnaire> data) {

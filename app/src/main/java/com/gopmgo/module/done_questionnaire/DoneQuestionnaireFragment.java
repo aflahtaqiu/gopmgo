@@ -1,6 +1,5 @@
 package com.gopmgo.module.done_questionnaire;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.Navigation;
 
+import com.gopmgo.R;
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.FragmentDoneQuestionnaireBinding;
 
@@ -40,10 +41,13 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), mainClass);
-                intent.putExtra("roleQuest", roleQuest);
-                startActivity(intent);
-                getActivity().finish();
+                if (roleQuest.equalsIgnoreCase(getString(R.string.role_quest_dev))) {
+                    Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
+                            .actionDoneQuestionnaireFragment2ToResultAsDevFragment());
+                } else {
+                    Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
+                            .actionDoneQuestionnaireFragment2ToResultAsPmFragment());
+                }
             }
         });
 

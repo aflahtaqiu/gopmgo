@@ -12,7 +12,6 @@ import com.gopmgo.model.AntiPatternSolution;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Created by aflah on 04/05/20
  * Email  : aflahtaqiusondha@gmail.com

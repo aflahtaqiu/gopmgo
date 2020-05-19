@@ -8,9 +8,7 @@ import java.util.List;
 
 public interface IResultAsPmView extends IBaseView {
     void injectPresenter();
-
     void showDataLayout();
     void hideDataLayout();
-
     void setListAntiPattern(List<AntiPattern> antiPatternList);
 }

@@ -20,7 +20,6 @@ public class PreQuestionnaireFragment extends BaseFragment implements IPreQuesti
 
     private String roleQuest;
 
-
     public PreQuestionnaireFragment() {
         // Fragment Constructor
     }

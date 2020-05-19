@@ -6,6 +6,5 @@ package com.gopmgo.module.result_as_pm;
  * Github : https://github.com/aflahtaqiu
  */
 interface IResultPmAdapterListener {
-
     void onItemClicked (int idAntiPattern, String title);
 }

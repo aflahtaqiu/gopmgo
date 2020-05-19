@@ -20,12 +20,11 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     private static IDataInjector dataInjector;
 
     private String sharedPrefKey = "answered_question_";
+    private int maxQuestionnaire;
 
     private List<Questionnaire> questions = new ArrayList<>();
     private List<Questionnaire> showingQuestions = new ArrayList<>();
     private HashMap<Integer, Integer> answerMaps = new HashMap<>();
-
-    private int maxQuestionnaire;
 
     public static QuestionnairePresenter getInstance () {
         if(instance == null) {
@@ -54,7 +53,8 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
                         @Override
                         public void onError(String errorMessage) {
-                            view.showMessage(errorMessage);
+                            if (errorMessage.equalsIgnoreCase(context.getString(R.string.message_timeout)))
+                                getQuestionnaires(context, roleQuest);
                         }
                     });
         } else if (roleQuest.equalsIgnoreCase(context.getString(R.string.role_quest_pm))) {
@@ -105,11 +105,6 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     @Override
     public void saveAnswersToSP() {
         SharedPrefUtils.setObjectSharedPref(sharedPrefKey, answerMaps);
-    }
-
-    @Override
-    public HashMap<Integer, Integer> storeAnswer() {
-        return this.answerMaps;
     }
 
     private void setInitialData(List<Questionnaire> data) {

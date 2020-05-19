@@ -1,6 +1,5 @@
 package com.gopmgo.model;
 
-import androidx.room.Entity;
 import androidx.room.Ignore;
 
 import com.google.gson.annotations.SerializedName;

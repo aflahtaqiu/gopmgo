@@ -1,8 +1,5 @@
 package com.gopmgo.module.pre_questionnaire;
 
-import com.gopmgo.di.IDataInjector;
-
-
 public class PreQuestionnairePresenter implements IPreQuestionnairePresenter {
 
     private static PreQuestionnairePresenter instance;

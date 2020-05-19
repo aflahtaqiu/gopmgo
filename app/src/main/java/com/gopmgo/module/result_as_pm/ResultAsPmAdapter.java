@@ -1,6 +1,7 @@
 package com.gopmgo.module.result_as_pm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,10 @@ import com.gopmgo.R;
 import com.gopmgo.databinding.ItemResultBinding;
 import com.gopmgo.model.AntiPattern;
 import com.hsalf.smilerating.SmileRating;
+import com.hsalf.smileyrating.SmileyRating;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 /**
  * Created by aflah on 02/05/20
@@ -55,6 +55,9 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
     public void onBindViewHolder(ResultAsPmViewHolder holder, int position) {
         AntiPattern item = items.get(position);
 
+        hideSmileName(holder.binding.ratingbarLikelihood);
+        hideSmileName(holder.binding.ratingbarSeverity);
+
         int likelihood = (int) Math.round(item.getLikelihood());
         int severity = (int) Math.round(item.getSeverity());
 
@@ -73,6 +76,14 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
                 listener.onItemClicked(item.getId(), item.getName());
             }
         });
+    }
+
+    private void hideSmileName (SmileRating smileRating) {
+        smileRating.setNameForSmile(SmileRating.TERRIBLE, "");
+        smileRating.setNameForSmile(SmileRating.BAD, "");
+        smileRating.setNameForSmile(SmileRating.OKAY, "");
+        smileRating.setNameForSmile(SmileRating.GOOD, "");
+        smileRating.setNameForSmile(SmileRating.GREAT, "");
     }
 
     private void setRatingbarColor (SmileRating smileRating) {

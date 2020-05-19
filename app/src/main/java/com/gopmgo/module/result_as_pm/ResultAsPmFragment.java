@@ -51,6 +51,8 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView,
                         .actionResultAsPmFragmentToLikelihoodSeverityFragment());
             }
         });
+
+        configAdapter();
         return binding.getRoot();
     }
 
@@ -59,7 +61,6 @@ public class ResultAsPmFragment extends BaseFragment implements IResultAsPmView,
         presenter.getAnsweredQuestion();
 
         if (presenter.isAnsweredQuestionnaire()) {
-            configAdapter();
             showDataLayout();
             presenter.getAntiPatterns(getContext());
         } else {

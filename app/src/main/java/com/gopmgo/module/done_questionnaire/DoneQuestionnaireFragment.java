@@ -17,7 +17,6 @@ import com.gopmgo.databinding.FragmentDoneQuestionnaireBinding;
 public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQuestionnaireView {
 
     private static IDoneQuestionnairePresenter presenter;
-    private static Class mainClass;
     private FragmentDoneQuestionnaireBinding binding;
     private String roleQuest;
 
@@ -27,10 +26,6 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
 
     public static void injectIDoneQuestionnairePresenter(IDoneQuestionnairePresenter _presenter) {
         presenter = _presenter;
-    }
-
-    public static void injectMainClass (Class _class){
-        mainClass = _class;
     }
 
     @Override

@@ -42,7 +42,6 @@ public class App extends Application {
 
     void addModuleDependency() {
         SplashScreenActivity.injectDestinationClass(MainActivity.class);
-        DoneQuestionnaireFragment.injectMainClass(MainActivity.class);
 
         PreQuestionnaireInjector.getInstance();
 

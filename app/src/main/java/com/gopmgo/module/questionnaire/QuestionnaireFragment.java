@@ -1,6 +1,7 @@
 package com.gopmgo.module.questionnaire;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,9 +113,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     }
 
     @Override
-    public void showMessage(String message) {
-
-    }
+    public void showMessage(String message) { }
 
     @Override
     public void injectPresenter() {

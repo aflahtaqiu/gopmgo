@@ -62,4 +62,6 @@
     <string name="text_result_problem_found">This is your current problem found</string>
     <string name="text_result_click_antipattern">Click on antipatterns to see detail solutions</string>
     <string name="text_question_result">What"'"s likelihood and severity?</string>
+
+    <string name="message_timeout">timeout</string>
 </resources>

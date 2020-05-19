@@ -12,5 +12,4 @@ public interface IQuestionnairePresenter extends IBasePresenter {
     void updateQuestionnaires();
     void setAnswerMap(int idQuestion, int answer);
     void saveAnswersToSP();
-    HashMap<Integer, Integer> storeAnswer();
 }

@@ -43,6 +43,9 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
     public void onBindViewHolder(ResultAsPmViewHolder holder, int position) {
         AntiPattern item = items.get(position);
 
+        hideSmileName(holder.binding.ratingbarLikelihood);
+        hideSmileName(holder.binding.ratingbarSeverity);
+
         int likelihood = (int) Math.round(item.getLikelihood());
         int severity = (int) Math.round(item.getSeverity());
 
@@ -61,6 +64,14 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
                 listener.onItemClicked(item.getId(), item.getName());
             }
         });
+    }
+
+    private void hideSmileName (SmileRating smileRating) {
+        smileRating.setNameForSmile(SmileRating.TERRIBLE, "");
+        smileRating.setNameForSmile(SmileRating.BAD, "");
+        smileRating.setNameForSmile(SmileRating.OKAY, "");
+        smileRating.setNameForSmile(SmileRating.GOOD, "");
+        smileRating.setNameForSmile(SmileRating.GREAT, "");
     }
 
     private void setRatingbarColor (SmileRating smileRating) {

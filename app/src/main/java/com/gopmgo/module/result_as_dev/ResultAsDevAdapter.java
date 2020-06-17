@@ -28,6 +28,11 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
     private List<AntiPattern> items = new ArrayList<>();
     private IResultDevAdapterListener listener;
 
+    private static final int ZERO_ITEM = 0;
+    private static final int MIN_NORMAL_RATING = 3;
+    private static final int INDEX_DECREMENT = 1;
+    private static final String RATING_BAR_TITLE = "";
+
     public void setListener(IResultDevAdapterListener listener) {
         this.listener = listener;
     }
@@ -49,8 +54,8 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
         int likelihood = (int) Math.round(item.getLikelihood());
         int severity = (int) Math.round(item.getSeverity());
 
-        holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - 1);
-        holder.binding.ratingbarSeverity.setSelectedSmile(severity - 1);
+        holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - INDEX_DECREMENT);
+        holder.binding.ratingbarSeverity.setSelectedSmile(severity - INDEX_DECREMENT);
 
         holder.binding.tvAntipatternTitle.setText(item.getName());
         holder.binding.tvDetailAntipattern.setText(item.getDefinition());
@@ -67,16 +72,15 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
     }
 
     private void hideSmileName (SmileRating smileRating) {
-        smileRating.setNameForSmile(SmileRating.TERRIBLE, "");
-        smileRating.setNameForSmile(SmileRating.BAD, "");
-        smileRating.setNameForSmile(SmileRating.OKAY, "");
-        smileRating.setNameForSmile(SmileRating.GOOD, "");
-        smileRating.setNameForSmile(SmileRating.GREAT, "");
+        smileRating.setNameForSmile(SmileRating.TERRIBLE, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.BAD, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.OKAY, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.GOOD, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.GREAT, RATING_BAR_TITLE);
     }
 
     private void setRatingbarColor (SmileRating smileRating) {
-        int rating = smileRating.getRating();
-        if (rating < 3)
+        if (smileRating.getRating() < MIN_NORMAL_RATING)
             smileRating.setNormalColor(context.getResources().getColor(R.color.yellowEmoji));
         else
             smileRating.setNormalColor(context.getResources().getColor(R.color.orangeEmoji));
@@ -85,7 +89,7 @@ public class ResultAsDevAdapter extends RecyclerView.Adapter<ResultAsDevAdapter.
     @Override
     public int getItemCount() {
         if (items == null) {
-            return 0;
+            return ZERO_ITEM;
         }
         return items.size();
     }

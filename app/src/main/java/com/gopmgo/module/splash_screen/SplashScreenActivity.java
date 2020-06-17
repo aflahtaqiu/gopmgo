@@ -19,6 +19,8 @@ public class SplashScreenActivity extends BaseActivity implements ISplashScreenV
 
     private ActivitySplashScreenBinding binding;
 
+    private static final int DELAY_MILLIS = 3000;
+
     public static void injectISplashScreenPresenter(ISplashScreenPresenter _presenter) {
         presenter = _presenter;
     }
@@ -44,7 +46,7 @@ public class SplashScreenActivity extends BaseActivity implements ISplashScreenV
             public void run() {
                 CommunicationUtils.changeActivity(SplashScreenActivity.this, mainClass);
             }
-        }, 3000);
+        }, DELAY_MILLIS);
         super.onStart();
     }
 

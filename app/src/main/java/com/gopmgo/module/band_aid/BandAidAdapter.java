@@ -1,5 +1,6 @@
 package com.gopmgo.module.band_aid;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -23,6 +24,10 @@ public class BandAidAdapter extends RecyclerView.Adapter<BandAidAdapter.BandAidV
     private Context context;
     private List<AntiPatternSolution> items = new ArrayList<>();
 
+    private static final int ZERO_ITEM = 0;
+    private static final int ADDITIONAL_INDEX = 1;
+    private static final String NUMBERING_FORMAT = "%d.";
+
     @Override
     public BandAidViewHolder onCreateViewHolder(ViewGroup parent,
                                                 int viewType) {
@@ -31,18 +36,19 @@ public class BandAidAdapter extends RecyclerView.Adapter<BandAidAdapter.BandAidV
                 .inflate(LayoutInflater.from(context), parent, false));
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(BandAidViewHolder holder, int position) {
         AntiPatternSolution item = items.get(position);
 
-        holder.binding.tvNumber.setText((position+1)+".");
+        holder.binding.tvNumber.setText(String.format(NUMBERING_FORMAT, position + ADDITIONAL_INDEX));
         holder.binding.tvSolution.setText(item.getSolution().getRefactoredSolution());
     }
 
     @Override
     public int getItemCount() {
         if (items == null) {
-            return 0;
+            return ZERO_ITEM;
         }
         return items.size();
     }

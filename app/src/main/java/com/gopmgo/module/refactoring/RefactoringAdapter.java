@@ -1,5 +1,6 @@
 package com.gopmgo.module.refactoring;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -23,6 +24,10 @@ public class RefactoringAdapter extends RecyclerView.Adapter<RefactoringAdapter.
     private Context context;
     private List<AntiPatternSolution> items = new ArrayList<>();
 
+    private static final int ZERO_ITEM = 0;
+    private static final int ADDITIONAL_INDEX = 1;
+    private static final String NUMBERING_FORMAT = "%d.";
+
     @Override
     public RefactoringViewHolder onCreateViewHolder(ViewGroup parent,
                                                 int viewType) {
@@ -31,19 +36,19 @@ public class RefactoringAdapter extends RecyclerView.Adapter<RefactoringAdapter.
                 .inflate(LayoutInflater.from(context), parent, false));
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(RefactoringViewHolder holder, int position) {
         AntiPatternSolution item = items.get(position);
 
-        int number = position+1;
-        holder.binding.tvNumber.setText(number+".");
+        holder.binding.tvNumber.setText(String.format(NUMBERING_FORMAT, position + ADDITIONAL_INDEX));
         holder.binding.tvSolution.setText(item.getSolution().getRefactoredSolution());
     }
 
     @Override
     public int getItemCount() {
         if (items == null) {
-            return 0;
+            return ZERO_ITEM;
         }
         return items.size();
     }

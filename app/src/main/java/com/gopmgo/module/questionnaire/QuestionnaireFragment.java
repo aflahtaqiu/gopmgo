@@ -1,7 +1,6 @@
 package com.gopmgo.module.questionnaire;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +27,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     private FragmentQuestionnaireBinding binding;
 
     private String roleQuest;
+    private static final int FIRST_LIST_POSITION_INDEX = 0;
 
     public QuestionnaireFragment () {
         // Fragment Constructor
@@ -123,7 +123,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
     @Override
     public void setListQuestionnaires(List<Questionnaire> identifications) {
         adapter.updateData(identifications);
-        binding.rvQuestionnaire.scrollToPosition(0);
+        binding.rvQuestionnaire.scrollToPosition(FIRST_LIST_POSITION_INDEX);
     }
 
     @Override

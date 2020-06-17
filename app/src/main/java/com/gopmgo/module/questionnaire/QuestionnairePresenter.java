@@ -21,6 +21,9 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     private String sharedPrefKey = "answered_question_";
     private int maxQuestionnaire;
+    private static final int MAX_SHOWING_QUESTION = 3;
+    private static final int ZERO_ITEM = 0;
+    private static final int INDEX_DECREMENT = 1;
 
     private List<Questionnaire> questions = new ArrayList<>();
     private List<Questionnaire> showingQuestions = new ArrayList<>();
@@ -78,11 +81,11 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
         view.setProgress(Math.abs(maxQuestionnaire - questions.size()));
         view.setFilledQuestionnaire(Math.abs(maxQuestionnaire - questions.size()));
 
-        if (questions.size() > 0) {
+        if (questions.size() > ZERO_ITEM) {
             showingQuestions.clear();
 
-            int maxCount = questions.size() > 3 ? 2 : questions.size()-1;
-            for (int i=maxCount; i>=0; i--) {
+            int maxCount = questions.size() > MAX_SHOWING_QUESTION ? MAX_SHOWING_QUESTION-INDEX_DECREMENT : questions.size()-INDEX_DECREMENT;
+            for (int i = maxCount; i >= 0; i--) {
                 showingQuestions.add(questions.get(i));
                 questions.remove(i);
             }
@@ -98,7 +101,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     @Override
     public void setAnswerMap(int idQuestion, int answer) {
-        if (answer >= 3)
+        if (answer >= MAX_SHOWING_QUESTION)
             answerMaps.put(idQuestion,answer);
     }
 
@@ -110,7 +113,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     private void setInitialData(List<Questionnaire> data) {
         questions.addAll(data);
 
-        for (int i=0;i<3;i++) {
+        for (int i=0; i<MAX_SHOWING_QUESTION; i++) {
             showingQuestions.add(questions.get(i));
             questions.remove(i);
         }

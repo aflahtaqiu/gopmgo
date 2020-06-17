@@ -10,9 +10,7 @@ import com.gopmgo.module.band_aid.BandAidInjector;
 import com.gopmgo.module.band_aid.BandAidPresenter;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternFragmentAdapter;
 import com.gopmgo.module.detail_antipattern.DetailAntipatternInjector;
-import com.gopmgo.module.done_questionnaire.DoneQuestionnaireFragment;
 import com.gopmgo.module.pre_questionnaire.PreQuestionnaireInjector;
-import com.gopmgo.module.pre_questionnaire.PreQuestionnairePresenter;
 import com.gopmgo.module.questionnaire.QuestionnaireInjector;
 import com.gopmgo.module.questionnaire.QuestionnairePresenter;
 import com.gopmgo.module.refactoring.RefactoringFragment;
@@ -30,13 +28,15 @@ import com.gopmgo.module.splash_screen.SplashScreenActivity;
 
 public class App extends Application {
 
-    private String prefName = "gopmgo";
+    private static final String prefName = "gopmgo";
+    private static final String defaultFont = "SERIF";
+    private static final String customFont = "fonts/segoeui.ttf";
 
     @Override
     public void onCreate() {
         super.onCreate();
         SharedPrefUtils.initSharedPref(prefName, getApplicationContext());
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/segoeui.ttf");
+        TypefaceUtil.overrideFont(getApplicationContext(), defaultFont, customFont);
         addModuleDependency();
     }
 
@@ -72,8 +72,8 @@ public class App extends Application {
         DetailAntipatternFragmentAdapter.injectSelfRepairConnector(selfRepairFragment);
         DetailAntipatternFragmentAdapter.injectRefactoringConnector(refactoringFragment);
 
-        DetailAntipatternFragmentAdapter.addFragment(bandAidFragment, "Band Aid");
-        DetailAntipatternFragmentAdapter.addFragment(selfRepairFragment, "Self Repair");
-        DetailAntipatternFragmentAdapter.addFragment(refactoringFragment, "Refactoring");
+        DetailAntipatternFragmentAdapter.addFragment(bandAidFragment, getResources().getString(R.string.title_band_aid));
+        DetailAntipatternFragmentAdapter.addFragment(selfRepairFragment, getResources().getString(R.string.title_self_repair));
+        DetailAntipatternFragmentAdapter.addFragment(refactoringFragment, getResources().getString(R.string.title_refactoring));
     }
 }

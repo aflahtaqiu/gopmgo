@@ -1,7 +1,6 @@
 package com.gopmgo.module.result_as_pm;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import com.gopmgo.R;
 import com.gopmgo.databinding.ItemResultBinding;
 import com.gopmgo.model.AntiPattern;
 import com.hsalf.smilerating.SmileRating;
-import com.hsalf.smileyrating.SmileyRating;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +25,13 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
 
     private Context context;
     private List<AntiPattern> items = new ArrayList<>();
-
     private IResultPmAdapterListener listener;
-
     private static ResultAsPmAdapter instance;
+
+    private static final int ZERO_ITEM = 0;
+    private static final int MIN_NORMAL_RATING = 3;
+    private static final int INDEX_DECREMENT = 1;
+    private static final String RATING_BAR_TITLE = "";
 
     public static ResultAsPmAdapter getInstance() {
         if (instance == null) {
@@ -61,8 +62,8 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
         int likelihood = (int) Math.round(item.getLikelihood());
         int severity = (int) Math.round(item.getSeverity());
 
-        holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - 1);
-        holder.binding.ratingbarSeverity.setSelectedSmile(severity - 1);
+        holder.binding.ratingbarLikelihood.setSelectedSmile(likelihood - INDEX_DECREMENT);
+        holder.binding.ratingbarSeverity.setSelectedSmile(severity - INDEX_DECREMENT);
 
         setRatingbarColor(holder.binding.ratingbarLikelihood);
         setRatingbarColor(holder.binding.ratingbarSeverity);
@@ -79,16 +80,16 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
     }
 
     private void hideSmileName (SmileRating smileRating) {
-        smileRating.setNameForSmile(SmileRating.TERRIBLE, "");
-        smileRating.setNameForSmile(SmileRating.BAD, "");
-        smileRating.setNameForSmile(SmileRating.OKAY, "");
-        smileRating.setNameForSmile(SmileRating.GOOD, "");
-        smileRating.setNameForSmile(SmileRating.GREAT, "");
+        smileRating.setNameForSmile(SmileRating.TERRIBLE, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.BAD, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.OKAY, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.GOOD, RATING_BAR_TITLE);
+        smileRating.setNameForSmile(SmileRating.GREAT, RATING_BAR_TITLE);
     }
 
     private void setRatingbarColor (SmileRating smileRating) {
         int rating = smileRating.getRating();
-        if (rating < 3)
+        if (rating < MIN_NORMAL_RATING)
             smileRating.setAngryColor(context.getResources().getColor(R.color.yellowEmoji));
         else
             smileRating.setNormalColor(context.getResources().getColor(R.color.orangeEmoji));
@@ -97,7 +98,7 @@ public class ResultAsPmAdapter extends RecyclerView.Adapter<ResultAsPmAdapter.Re
     @Override
     public int getItemCount() {
         if (items == null) {
-            return 0;
+            return ZERO_ITEM;
         }
         return items.size();
     }

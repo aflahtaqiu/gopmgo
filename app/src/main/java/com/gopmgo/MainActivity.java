@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
      private BottomNavigationView navView;
 
+     private static final int animDuration = 0;
+     private static final float alphaShow = 1f;
+    private static final float alphaHide = 0f;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideBottomNavigation() {
-        if (navView.getVisibility() == View.VISIBLE && navView.getAlpha() == 1f) {
-            navView.animate().alpha(0f)
-                    .withEndAction(() -> navView.setVisibility(View.GONE)).setDuration(0);
+        if (navView.getVisibility() == View.VISIBLE && navView.getAlpha() == alphaShow) {
+            navView.animate().alpha(alphaHide)
+                    .withEndAction(() -> navView.setVisibility(View.GONE)).setDuration(animDuration);
         }
     }
 
     private void showBottomNavigation() {
         navView.setVisibility(View.VISIBLE);
-        navView.animate().alpha(1f).setDuration(0);
+        navView.animate().alpha(alphaShow).setDuration(animDuration);
     }
 }

@@ -3,17 +3,17 @@ package com.gopmgo.module.self_repair;
 
 public class SelfRepairInjector {
 
-    private static SelfRepairInjector self_repairInjector;
+    private static SelfRepairInjector selfRepairInjector;
 
     SelfRepairInjector() {
         injectDependency();
     }
 
     public static SelfRepairInjector getInstance() {
-        if (self_repairInjector == null) {
-            self_repairInjector = new SelfRepairInjector();
+        if (selfRepairInjector == null) {
+            selfRepairInjector = new SelfRepairInjector();
         }
-        return self_repairInjector;
+        return selfRepairInjector;
     }
 
     void injectDependency() {

@@ -3,17 +3,17 @@ package com.gopmgo.module.done_questionnaire;
 
 public class DoneQuestionnaireInjector {
 
-    public static DoneQuestionnaireInjector done_questionnaireInjector;
+    public static DoneQuestionnaireInjector doneQuestionnaireInjector;
 
     public DoneQuestionnaireInjector() {
         injectDependency();
     }
 
     public static DoneQuestionnaireInjector getInstance() {
-        if (done_questionnaireInjector == null) {
-            done_questionnaireInjector = new DoneQuestionnaireInjector();
+        if (doneQuestionnaireInjector == null) {
+            doneQuestionnaireInjector = new DoneQuestionnaireInjector();
         }
-        return done_questionnaireInjector;
+        return doneQuestionnaireInjector;
     }
 
     void injectDependency() {

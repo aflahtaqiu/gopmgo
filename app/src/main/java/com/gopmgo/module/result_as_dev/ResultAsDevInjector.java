@@ -3,17 +3,17 @@ package com.gopmgo.module.result_as_dev;
 
 public class ResultAsDevInjector {
 
-    public static ResultAsDevInjector result_as_devInjector;
+    public static ResultAsDevInjector resultAsDevInjector;
 
     public ResultAsDevInjector() {
         injectDependency();
     }
 
     public static ResultAsDevInjector getInstance() {
-        if (result_as_devInjector == null) {
-            result_as_devInjector = new ResultAsDevInjector();
+        if (resultAsDevInjector == null) {
+            resultAsDevInjector = new ResultAsDevInjector();
         }
-        return result_as_devInjector;
+        return resultAsDevInjector;
     }
 
     void injectDependency() {

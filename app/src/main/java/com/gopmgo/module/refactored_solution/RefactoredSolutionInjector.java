@@ -3,17 +3,17 @@ package com.gopmgo.module.refactored_solution;
 
 public class RefactoredSolutionInjector {
 
-    public static RefactoredSolutionInjector refactored_solutionInjector;
+    public static RefactoredSolutionInjector refactoredSolutionInjector;
 
     public RefactoredSolutionInjector() {
         injectDependency();
     }
 
     public static RefactoredSolutionInjector getInstance() {
-        if (refactored_solutionInjector == null) {
-            refactored_solutionInjector = new RefactoredSolutionInjector();
+        if (refactoredSolutionInjector == null) {
+            refactoredSolutionInjector = new RefactoredSolutionInjector();
         }
-        return refactored_solutionInjector;
+        return refactoredSolutionInjector;
     }
 
     void injectDependency() {

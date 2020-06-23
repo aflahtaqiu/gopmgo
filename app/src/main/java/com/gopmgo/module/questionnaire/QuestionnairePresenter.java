@@ -1,6 +1,7 @@
 package com.gopmgo.module.questionnaire;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.R;
@@ -51,6 +52,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
                     new IQuestionnaireDataSource.QuestionnaireCallback() {
                         @Override
                         public void onSuccess(List<Questionnaire> data) {
+                            Log.d(QuestionnairePresenter.class.getSimpleName(), data.size()+" " + context.getString(R.string.role_quest_dev) + " questionnaires");
                             setInitialData(data);
                         }
 
@@ -64,6 +66,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
             dataInjector.provideQuestionnaireRepository(context).getPmQuestionnaires(new IQuestionnaireDataSource.QuestionnaireCallback() {
                 @Override
                 public void onSuccess(List<Questionnaire> data) {
+                    Log.d(QuestionnairePresenter.class.getSimpleName(), data.size()+" " + context.getString(R.string.role_quest_pm) + " questionnaires");
                     setInitialData(data);
                 }
 
@@ -101,6 +104,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
 
     @Override
     public void setAnswerMap(int idQuestion, int answer) {
+        Log.d(QuestionnairePresenter.class.getSimpleName(), "idQuestionnaire: " + idQuestion + "  ,answer: " + answer);
         if (answer >= MAX_SHOWING_QUESTION)
             answerMaps.put(idQuestion,answer);
     }

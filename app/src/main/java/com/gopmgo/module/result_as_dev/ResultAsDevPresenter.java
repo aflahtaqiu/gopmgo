@@ -1,6 +1,7 @@
 package com.gopmgo.module.result_as_dev;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.data.source.IAntiPatternDataSource;
@@ -42,14 +43,14 @@ public class ResultAsDevPresenter implements IResultAsDevPresenter {
             @Override
             public void onSuccess(List<AntiPattern> data) {
                 List<AntiPattern> selectedAntiPattern = new ArrayList<>();
-                for(AntiPattern antiPattern : data) {
-                    for (Map.Entry<Integer, Integer> entry : answerMaps.entrySet()) {
+                for (Map.Entry<Integer, Integer> entry : answerMaps.entrySet()) {
+                    for(AntiPattern antiPattern : data){
                         if (antiPattern.getId() == Integer.parseInt(String.valueOf(entry.getKey()))){
+                            Log.d(ResultAsDevPresenter.class.getSimpleName(), "id antipattern: " + entry.getKey());
                             selectedAntiPattern.add(antiPattern);
                         }
                     }
                 }
-
                 view.setListAntiPattern(selectedAntiPattern);
             }
 

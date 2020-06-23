@@ -1,11 +1,13 @@
 package com.gopmgo.module.result_as_pm;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.data.source.IAntiPatternDataSource;
 import com.gopmgo.di.IDataInjector;
 import com.gopmgo.model.AntiPattern;
+import com.gopmgo.module.result_as_dev.ResultAsDevPresenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,14 +44,15 @@ public class ResultAsPmPresenter implements IResultAsPmPresenter {
             @Override
             public void onSuccess(List<AntiPattern> data) {
                 List<AntiPattern> selectedAntiPattern = new ArrayList<>();
-                for(AntiPattern antiPattern : data) {
-                    for (Map.Entry<Integer, Integer> entry : answerMaps.entrySet()) {
+
+                for (Map.Entry<Integer, Integer> entry : answerMaps.entrySet()) {
+                    for(AntiPattern antiPattern : data){
                         if (antiPattern.getId() == Integer.parseInt(String.valueOf(entry.getKey()))){
+                            Log.d(ResultAsPmPresenter.class.getSimpleName(), "id antipattern: " + entry.getKey());
                             selectedAntiPattern.add(antiPattern);
                         }
                     }
                 }
-
                 view.setListAntiPattern(selectedAntiPattern);
             }
 

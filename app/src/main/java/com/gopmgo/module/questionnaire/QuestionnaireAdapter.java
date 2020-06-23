@@ -93,7 +93,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
         this.context = context;
     }
 
-    static class QuestionnaireViewHolder extends RecyclerView.ViewHolder {
+    class QuestionnaireViewHolder extends RecyclerView.ViewHolder {
 
         ItemQuestionnaireBinding binding;
 

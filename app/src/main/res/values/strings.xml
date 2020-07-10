@@ -64,4 +64,8 @@
     <string name="text_question_result">What"'"s likelihood and severity?</string>
 
     <string name="message_timeout">timeout</string>
+    <string name="start">start</string>
+    <string name="questionnaire">Questionnaire</string>
+    <string name="get_to_know_your_team">Get to know your team</string>
+    <string name="choose_your_questionnaire_based_on_your_role">Choose your questionnaire based on your role :</string>
 </resources>

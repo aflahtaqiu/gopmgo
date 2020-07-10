@@ -19,7 +19,8 @@
             android:src="@drawable/home_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/textView3"
@@ -28,7 +29,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="16dp"
-            android:text="Questionnaire"
+            android:text="@string/questionnaire"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -40,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Choose your questionnaire based on your role :"
+            android:text="@string/choose_your_questionnaire_based_on_your_role"
             android:textAllCaps="false"
             android:textColor="@color/colorBlueSea"
             app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -51,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="Get to know your team"
+            android:text="@string/get_to_know_your_team"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="32sp"
@@ -82,14 +83,15 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginLeft="24dp"
                     android:src="@drawable/ic_team"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:id="@+id/textView"
@@ -127,7 +129,7 @@
                     android:layout_marginRight="24dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/bg_btn_start_quistionneire"
-                    android:text="start"
+                    android:text="@string/start"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -160,8 +162,8 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginLeft="24dp"
                     android:src="@drawable/ic_env"

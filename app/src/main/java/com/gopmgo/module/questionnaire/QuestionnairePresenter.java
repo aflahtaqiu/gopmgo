@@ -1,7 +1,6 @@
 package com.gopmgo.module.questionnaire;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.aflah.libraryku.SharedPrefUtils;
 import com.gopmgo.R;
@@ -52,7 +51,6 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
                     new IQuestionnaireDataSource.QuestionnaireCallback() {
                         @Override
                         public void onSuccess(List<Questionnaire> data) {
-                            Log.d(QuestionnairePresenter.class.getSimpleName(), data.size()+" " + context.getString(R.string.role_quest_dev) + " questionnaires");
                             setInitialData(data);
                         }
 
@@ -66,7 +64,6 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
             dataInjector.provideQuestionnaireRepository(context).getPmQuestionnaires(new IQuestionnaireDataSource.QuestionnaireCallback() {
                 @Override
                 public void onSuccess(List<Questionnaire> data) {
-                    Log.d(QuestionnairePresenter.class.getSimpleName(), data.size()+" " + context.getString(R.string.role_quest_pm) + " questionnaires");
                     setInitialData(data);
                 }
 
@@ -98,13 +95,11 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
         } else {
             saveAnswersToSP();
             view.moveDoneQuestionnaire();
-            view.showMessage("The questionnaire has been done.");
         }
     }
 
     @Override
     public void setAnswerMap(int idQuestion, int answer) {
-        Log.d(QuestionnairePresenter.class.getSimpleName(), "idQuestionnaire: " + idQuestion + "  ,answer: " + answer);
         if (answer >= MAX_SHOWING_QUESTION)
             answerMaps.put(idQuestion,answer);
     }
@@ -112,6 +107,8 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     @Override
     public void saveAnswersToSP() {
         SharedPrefUtils.setObjectSharedPref(sharedPrefKey, answerMaps);
+        view.showMessage("The answered questionnaire saved.");
+        sharedPrefKey = "answered_question_";
     }
 
     private void setInitialData(List<Questionnaire> data) {

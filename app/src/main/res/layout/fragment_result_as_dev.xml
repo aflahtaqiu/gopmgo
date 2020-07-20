@@ -104,7 +104,7 @@
                     android:id="@+id/img_no_data"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:src="@drawable/img_list_is_empty"
+                    android:src="@drawable/img_list_result_dev_empty"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

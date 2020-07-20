@@ -3,6 +3,7 @@ package com.gopmgo;
 import android.app.Application;
 
 import com.aflah.libraryku.SharedPrefUtils;
+import com.facebook.stetho.Stetho;
 import com.gopmgo.base.TypefaceUtil;
 import com.gopmgo.di.DataInjector;
 import com.gopmgo.module.band_aid.BandAidFragment;
@@ -36,6 +37,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         SharedPrefUtils.initSharedPref(prefName, getApplicationContext());
+        Stetho.initializeWithDefaults(this);
         TypefaceUtil.overrideFont(getApplicationContext(), defaultFont, customFont);
         addModuleDependency();
     }

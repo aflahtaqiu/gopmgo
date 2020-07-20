@@ -66,6 +66,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
                     case R.id.rb_third : selectedAnswer = THIRD_ANSWER; break;
                     case R.id.rb_fourth : selectedAnswer = FOURTH_ANSWER; break;
                     case R.id.rb_fifth : selectedAnswer = FIFTH_ANSWER; break;
+                    default: selectedAnswer = FIRST_ANSWER;
                 }
                 listener.onQuestSelected(item.getId(), selectedAnswer);
             }

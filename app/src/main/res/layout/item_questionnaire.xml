@@ -8,9 +8,13 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/tv_questionnaire"
         app:layout_constraintStart_toStartOf="@+id/tv_questionnaire"
@@ -35,7 +39,7 @@
 
         <RadioButton
             android:id="@+id/rb_third"
-            android:layout_width="70dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableTop="@drawable/selector_rb_small"

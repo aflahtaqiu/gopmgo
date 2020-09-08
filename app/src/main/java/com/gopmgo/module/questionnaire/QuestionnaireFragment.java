@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.aflah.libraryku.MessageUtils;
 import com.gopmgo.base.BaseFragment;
 import com.gopmgo.databinding.DialogConfirmationBinding;
 import com.gopmgo.databinding.FragmentQuestionnaireBinding;
@@ -40,41 +40,25 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
         binding = FragmentQuestionnaireBinding.inflate(inflater, container, false);
         injectPresenter();
 
-        binding.ivClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+        binding.ivClose.setOnClickListener(v -> {
+            AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
 
-                DialogConfirmationBinding bindingDialog = DialogConfirmationBinding.inflate(LayoutInflater.from(getContext()));
-                alertDialog.setView(bindingDialog.getRoot());
+            DialogConfirmationBinding bindingDialog = DialogConfirmationBinding.inflate(LayoutInflater.from(getContext()));
+            alertDialog.setView(bindingDialog.getRoot());
 
-                bindingDialog.btnYes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        alertDialog.dismiss();
-                        Navigation.findNavController(binding.getRoot()).
-                                navigate(QuestionnaireFragmentDirections
-                                        .actionQuestionnaireFragment2ToHomeFragment());
-                    }
-                });
+            bindingDialog.btnYes.setOnClickListener(v1 -> {
+                alertDialog.dismiss();
+                Navigation.findNavController(binding.getRoot()).
+                        navigate(QuestionnaireFragmentDirections
+                                .actionQuestionnaireFragment2ToHomeFragment());
+            });
 
-                bindingDialog.btnNo.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        alertDialog.dismiss();
-                    }
-                });
+            bindingDialog.btnNo.setOnClickListener(v12 -> alertDialog.dismiss());
 
-                alertDialog.show();
-            }
+            alertDialog.show();
         });
 
-        binding.btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.updateQuestionnaires();
-            }
-        });
+        binding.btnNext.setOnClickListener(v -> presenter.updateQuestionnaires());
 
         return binding.getRoot();
     }
@@ -115,7 +99,7 @@ public class QuestionnaireFragment extends BaseFragment implements IQuestionnair
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        MessageUtils.showToast(getContext(), message);
     }
 
     @Override

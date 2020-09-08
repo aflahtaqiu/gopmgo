@@ -33,16 +33,14 @@ public class DoneQuestionnaireFragment extends BaseFragment implements IDoneQues
                              Bundle savedInstanceState) {
         binding = FragmentDoneQuestionnaireBinding.inflate(inflater, container, false);
 
-        binding.btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (roleQuest.equalsIgnoreCase(getString(R.string.role_quest_dev))) {
-                    Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
-                            .actionDoneQuestionnaireFragment2ToResultAsDevFragment());
-                } else {
-                    Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
-                            .actionDoneQuestionnaireFragment2ToResultAsPmFragment());
-                }
+
+        binding.btnNext.setOnClickListener(v -> {
+            if (roleQuest.equalsIgnoreCase(getString(R.string.role_quest_dev))) {
+                Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
+                        .actionDoneQuestionnaireFragment2ToResultAsDevFragment());
+            } else {
+                Navigation.findNavController(v).navigate(DoneQuestionnaireFragmentDirections
+                        .actionDoneQuestionnaireFragment2ToResultAsPmFragment());
             }
         });
 

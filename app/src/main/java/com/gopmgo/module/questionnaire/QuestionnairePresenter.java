@@ -44,7 +44,7 @@ public class QuestionnairePresenter implements IQuestionnairePresenter {
     @Override
     public void getQuestionnaires(Context context, String roleQuest) {
 
-        sharedPrefKey += roleQuest;
+        sharedPrefKey = sharedPrefKey + roleQuest;
 
         if (roleQuest.equalsIgnoreCase(context.getString(R.string.role_quest_dev))) {
             dataInjector.provideQuestionnaireRepository(context).getDevQuestionnaires(
